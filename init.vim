@@ -54,6 +54,8 @@ set splitbelow splitright
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
+"colors.filetypes": ["*"]
+
 :colorscheme onedark
 
 highlight LineNr           guifg=#5b6268 ctermfg=8    guibg=#282c34 ctermbg=none  cterm=none
@@ -82,6 +84,7 @@ Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N
 Plug 'https://github.com/neoclide/coc.nvim' " Auto Completion
 Plug 'https://github.com/voldikss/vim-floaterm'
+Plug 'https://github.com/chrisbra/Colorizer'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-startify'
@@ -91,6 +94,7 @@ Plug 'junegunn/goyo.vim'                           " Distraction-free viewing
 Plug 'junegunn/limelight.vim'                      " Hyperfocus on a range
 Plug 'junegunn/vim-emoji'                          " Vim needs emojis!
 Plug 'github/copilot.vim'                          " GitHub Copilot
+Plug 'ziglang/zig.vim'
 
 call plug#end()
 
