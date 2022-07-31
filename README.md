@@ -1,8 +1,7 @@
 # My dotfiles for NeoVim
 
 ## About
-This config uses [VimPlug](https://github.com/junegunn/vim-plug) as a plugin manager.
-If you have trouble with plugin SirVer/ultisnips, you can just delete it from init.vim.
+This config uses [Packer](https://github.com/hashicorp/packer) as a plugin manager.
 
 | Keybinding            | Description                                 |
 |-----------------------|---------------------------------------------|
