@@ -3,7 +3,8 @@ require("settings")
 require("plugins")
 require("keybindings")
 require("autocmd")
-require("startup")
+require("neovide")
+require("dashboard")
 
 ---Pretty print lua table
 function _G.dump(...)

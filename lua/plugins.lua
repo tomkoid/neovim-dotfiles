@@ -22,11 +22,15 @@ return require("packer").startup({
     use("nvim-telescope/telescope-fzf-native.nvim")
     use("nvim-telescope/telescope-symbols.nvim")
     use("nvim-telescope/telescope-file-browser.nvim")
-    use("glepnir/dashboard-nvim")
     use("ap/vim-css-color")
     use("junegunn/vim-emoji")
     use("github/copilot.vim")
     use("ziglang/zig.vim")
+    use {
+	'goolord/alpha-nvim',
+    	requires = { 'kyazdani42/nvim-web-devicons' },
+    }
+
   end,
   config = {
     display = {
