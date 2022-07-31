@@ -6,6 +6,8 @@ This config uses [Packer](https://github.com/hashicorp/packer) as a plugin manag
 | Keybinding            | Description                                 |
 |-----------------------|---------------------------------------------|
 | Ctrl + t              | Opens up NerdTree                           |
+| Ctrl + e              | Go to beginning of the line	       	      |
+| Ctrl + a              | Go to end of line			      |
 | Ctrl + s              | Switches between windows                    |
 | Ctrl + Left Arrow     | Switches to next tab                        |
 | Ctrl + Right Arrow    | Switches to previous tab                    |
@@ -13,7 +15,7 @@ This config uses [Packer](https://github.com/hashicorp/packer) as a plugin manag
 | Ctrl + l              | Resize window (+5)                          |
 | F3                    | Clears search highlightning                 |
 | F4                    | Wraps the text                              | 
-| Ctrl + b              | Opens up new terminal with fish shell       |
+| Ctrl + b              | Opens up new terminal with zsh shell        |
 
 ### Screenshots:
 <img src="images/start.png">
