@@ -6,8 +6,8 @@ This config uses [Packer](https://github.com/hashicorp/packer) as a plugin manag
 | Keybinding            | Description                                 |
 |-----------------------|---------------------------------------------|
 | Ctrl + t              | Opens up NerdTree                           |
-| Ctrl + e              | Go to beginning of the line	       	      |
-| Ctrl + a              | Go to end of line			      |
+| Ctrl + a              | Go to the beginning of the line	      |
+| Ctrl + e              | Go to the end of the line	       	      |
 | Ctrl + s              | Switches between windows                    |
 | Ctrl + Left Arrow     | Switches to next tab                        |
 | Ctrl + Right Arrow    | Switches to previous tab                    |
