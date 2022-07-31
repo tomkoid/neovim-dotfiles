@@ -10,8 +10,8 @@ If you have trouble with plugin SirVer/ultisnips, you can just delete it from in
 | Ctrl + s              | Switches between windows                    |
 | Ctrl + Left Arrow     | Switches to next tab                        |
 | Ctrl + Right Arrow    | Switches to previous tab                    |
-| Ctrl + h              | Resize window (+5)                          |
-| Ctrl + l              | Resize window (-5)                          |
+| Ctrl + h              | Resize window (-5)                          |
+| Ctrl + l              | Resize window (+5)                          |
 | F3                    | Clears search highlightning                 |
 | F4                    | Wraps the text                              | 
 | Ctrl + b              | Opens up new terminal with fish shell       |

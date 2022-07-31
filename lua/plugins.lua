@@ -4,32 +4,52 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   command = "source <afile> | PackerCompile"
 })
 
+require('lualine').setup()
+
 return require("packer").startup({
   function(use)
+    -- PACKAGE MANAGERS
     use("wbthomason/packer.nvim")
+
+    -- EXTRA PLUGINS
     use("honza/vim-snippets")
     use("tpope/vim-commentary")
     use("nvim-lua/plenary.nvim")
-    use("nvim-lualine/lualine.nvim")
-    use("preservim/nerdtree")
     use("terryma/vim-multiple-cursors")
     use("ryanoasis/vim-devicons")
-    use("neoclide/coc.nvim")
     use("voldikss/vim-floaterm")
     use("chrisbra/Colorizer")
     use("junegunn/fzf")
-    use("nvim-telescope/telescope.nvim")
-    use("nvim-telescope/telescope-fzf-native.nvim")
-    use("nvim-telescope/telescope-symbols.nvim")
-    use("nvim-telescope/telescope-file-browser.nvim")
     use("ap/vim-css-color")
     use("junegunn/vim-emoji")
-    use("github/copilot.vim")
-    use("ziglang/zig.vim")
+    use("kyazdani42/nvim-web-devicons")
+    use("numToStr/Sakura.nvim")
+    use {
+	"nvim-lualine/lualine.nvim",
+	requires = { "kyazdani42/nvim-web-devicons", opt = true }
+    }
     use {
 	'goolord/alpha-nvim',
     	requires = { 'kyazdani42/nvim-web-devicons' },
     }
+
+    -- FILE MANAGEMENT
+    use("preservim/nerdtree")
+    use("nvim-treesitter/nvim-treesitter")
+
+    -- COLORSCHEMES
+    use("RRethy/nvim-base16")
+
+    -- TELESCOPE PLUGINS
+    use("nvim-telescope/telescope.nvim")
+    use("nvim-telescope/telescope-fzf-native.nvim")
+    use("nvim-telescope/telescope-symbols.nvim")
+    use("nvim-telescope/telescope-file-browser.nvim")
+
+    -- LANGUAGE SUPPORT
+    use("neoclide/coc.nvim")
+    use("github/copilot.vim")
+    use("ziglang/zig.vim")
 
   end,
   config = {
