@@ -4,7 +4,11 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   command = "source <afile> | PackerCompile"
 })
 
-require('lualine').setup()
+require("lualine").setup {
+	options = {
+		disabled_filetypes = {'NERDTree'}
+	}
+}
 
 return require("packer").startup({
   function(use)
@@ -35,7 +39,6 @@ return require("packer").startup({
 
     -- FILE MANAGEMENT
     use("preservim/nerdtree")
-    use("nvim-treesitter/nvim-treesitter")
 
     -- COLORSCHEMES
     use("RRethy/nvim-base16")

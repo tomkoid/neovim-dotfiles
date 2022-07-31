@@ -14,6 +14,9 @@ o.wrap = true
 o.splitbelow = true
 o.splitright = true
 
+-- Fix lualine in NERDTree
+o.laststatus = 3
+
 -- Decrease update time
 o.timeoutlen = 500
 o.updatetime = 200
