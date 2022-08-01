@@ -41,9 +41,11 @@ nvim '+source ~/.config/nvim/lua/settings.lua' '+source ~/.config/nvim/lua/plugi
 cd ~/.local/share/nvim/site/pack/packer/start/coc.nvim/
 echo "Building coc.nvim.."
 yarn build
-echo "Installing coc.nvim.."
+echo "Installing coc.nvim.. This may take a while."
 yarn install
 
 echo "NeoVim setup complete!"
+
+echo "You may need to install Ubuntu Font Family, JetBrains Mono and Nerd Fonts for emoji and symbols to work."
 
 cd $orig_dir
