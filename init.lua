@@ -1,4 +1,4 @@
-function is_module_available(name)
+local function is_module_available(name)
   if package.loaded[name] then
     return true
   else
@@ -25,6 +25,16 @@ end
 if is_module_available("lualine") then
   require("lualine_conf")
 end
+
+require("lspconfig").sumneko_lua.setup({
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = {"vim"},
+      },
+    },
+  },
+})
 
 ---Pretty print lua table
 function _G.dump(...)
