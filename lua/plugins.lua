@@ -1,3 +1,5 @@
+local enable_plugins = false
+
 vim.api.nvim_create_autocmd("BufWritePost", {
   group = vim.api.nvim_create_augroup("PACKER", { clear = true }),
   pattern = "plugins.lua",
@@ -12,6 +14,8 @@ require("lualine").setup {
 
 return require("packer").startup({
   function(use)
+    if enable_plugins == true then
+
     -- PACKAGE MANAGERS
     use("wbthomason/packer.nvim")
 
@@ -53,6 +57,8 @@ return require("packer").startup({
     use("neoclide/coc.nvim")
     use("github/copilot.vim")
     use("ziglang/zig.vim")
+
+    end
 
   end,
   config = {
