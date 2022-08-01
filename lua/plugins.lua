@@ -63,10 +63,3 @@ require("packer").startup({
     },
   },
 })
-
-require("lualine").setup {
-	options = {
-		disabled_filetypes = {'NERDTree'}
-	}
-}
-

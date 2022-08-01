@@ -5,6 +5,7 @@ require("keybindings")
 require("autocmd")
 require("neovide")
 require("dashboard")
+require("lualine_conf")
 
 ---Pretty print lua table
 function _G.dump(...)
