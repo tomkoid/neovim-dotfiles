@@ -1,4 +1,4 @@
-local enable_plugins = false
+local enable_plugins = true
 
 vim.api.nvim_create_autocmd("BufWritePost", {
   group = vim.api.nvim_create_augroup("PACKER", { clear = true }),
