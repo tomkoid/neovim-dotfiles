@@ -26,6 +26,7 @@ require("packer").startup({
     use("junegunn/vim-emoji")
     use("kyazdani42/nvim-web-devicons")
     use("numToStr/Sakura.nvim")
+    use("vimwiki/vimwiki")
     use {
 	"nvim-lualine/lualine.nvim",
 	requires = { "kyazdani42/nvim-web-devicons", opt = true }
