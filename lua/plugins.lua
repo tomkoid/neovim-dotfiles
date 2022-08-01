@@ -6,13 +6,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   command = "source <afile> | PackerCompile"
 })
 
-require("lualine").setup {
-	options = {
-		disabled_filetypes = {'NERDTree'}
-	}
-}
-
-return require("packer").startup({
+require("packer").startup({
   function(use)
     if enable_plugins == true then
 
@@ -69,3 +63,10 @@ return require("packer").startup({
     },
   },
 })
+
+require("lualine").setup {
+	options = {
+		disabled_filetypes = {'NERDTree'}
+	}
+}
+
