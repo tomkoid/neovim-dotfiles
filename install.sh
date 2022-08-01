@@ -1,5 +1,29 @@
 #!/bin/bash
 
+error=false
+if [ ! -f "/usr/bin/node" ]
+then
+  echo "Please install node.js first to run this script"
+  error=true
+fi
+
+if [ ! -f "/usr/bin/yarn" ]
+then
+  echo "Please install yarn first to run this script"
+  error=true
+fi
+
+if [ ! -f "/usr/bin/git" ]
+then
+  echo "Please install git first to run this script"
+  error=true
+fi
+
+if [ $error == true ]
+then
+  exit 1
+fi
+
 # Store the current directory
 orig_dir=$PWD
 
