@@ -32,6 +32,10 @@ After that you can install [packer plugin manager](https://github.com/hashicorp/
 $ ./install.sh
 ```
 This will launch the **install script**.
+If you are running **Termux**, you can use the following command.
+```
+$ ./install_termux.sh
+```
 After the plugins are downloaded and installed, quit [NeoVim](https://github.com/neovim/neovim) and the installation process will continue.
 When the installation is done, you also have to install Ubuntu Font Family, JetBrains Mono and Nerd Fonts with your distro's [package manager](https://wikiless.tiekoetter.com/wiki/Package_manager?lang=en).
 In [Arch Linux](https://archlinux.org) you can install it with [pacman](https://wiki.archlinux.org/title/pacman) and [paru](https://github.com/Morganamilo/paru) (or with any other [AUR helper](https://wiki.archlinux.org/title/AUR_helpers))
