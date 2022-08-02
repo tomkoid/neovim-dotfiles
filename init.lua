@@ -26,6 +26,8 @@ if is_module_available("lualine") then
   require("lualine_conf")
 end
 
+vim.cmd("source ~/.config/nvim/vimscript/autocompl.vim")
+
 if is_module_available("lspconfig") then
   require("lspconfig").sumneko_lua.setup({
     settings = {

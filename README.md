@@ -48,6 +48,7 @@ And with AUR helper:
 ```
 $ paru nerd-fonts-complete
 ```
+
 This package can be large, so this may take a while to install.
 After the installation of fonts is complete, you're done!
 

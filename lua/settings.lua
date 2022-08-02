@@ -2,6 +2,8 @@ local highlight = vim.highlight
 local g = vim.g
 local o = vim.o
 
+o.encoding = "utf-8"
+
 -- Set colorscheme
 vim.cmd(":colorscheme onedark")
 
@@ -24,13 +26,16 @@ o.showmatch = true
 o.showmode = true
 o.hidden = true
 o.scrolloff = 10
-o.smarttab = true
-o.smartcase = true
+--o.smarttab = true
+--o.smartcase = true
 o.autoindent = true
 o.autoread = true
 o.wildmenu = true
-o.wildmode = "longest,list"
+o.wildmode = "list:longest"
 o.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*xlsx"
+o.backspace = "indent,eol,start"
+
+g.rehash256 = 1
 
 -- Enable mouse
 o.mouse = "a"
