@@ -28,11 +28,11 @@ require("packer").startup({
     use("numToStr/Sakura.nvim")
     use("vimwiki/vimwiki")
     use {
-	"nvim-lualine/lualine.nvim",
-	requires = { "kyazdani42/nvim-web-devicons", opt = true }
+	    "nvim-lualine/lualine.nvim",
+	    requires = { "kyazdani42/nvim-web-devicons", opt = true }
     }
     use {
-	'goolord/alpha-nvim',
+	    'goolord/alpha-nvim',
     	requires = { 'kyazdani42/nvim-web-devicons' },
     }
 
