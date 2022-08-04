@@ -1,4 +1,4 @@
-# My dotfiles for NeoVim
+[#](#) My dotfiles for NeoVim
 
 ## About
 This config uses [Packer](https://github.com/hashicorp/packer) as a plugin manager.
@@ -28,14 +28,19 @@ Now, to run the **install script**, you have to CD into **~/.config/nvim** direc
 $ cd ~/.config/nvim
 ```
 After that you can install [packer plugin manager](https://github.com/hashicorp/packer) and plugins with the following command.
+
+**WARNING FOR DEBIAN USERS**: If you are using Debian, make sure you have installed yarn from [npm](https://www.npmjs.com).
+If you don't have it already installed with [npm](https://www.npmjs.com), you can install it with: `$ sudo npm install -g yarn`. 
 ```
 $ ./install.sh
 ```
 This will launch the **install script**.
 If you are running **Termux**, instead of using the command **above**, you can use this command: `$ ./install_termux.sh`
 
-After the plugins are downloaded and installed, quit [NeoVim](https://github.com/neovim/neovim) and the installation process will continue.
-When the installation is done, you also have to install Ubuntu Font Family, JetBrains Mono and Nerd Fonts with your distro's [package manager](https://wikiless.tiekoetter.com/wiki/Package_manager?lang=en).
+After the plugins are downloaded and installed, quit Packer with `q` and quit [NeoVim](https://github.com/neovim/neovim) with `:qa` and the installation process will continue.
+When the installation is done, you should have done.
+
+If you have trouble with fonts, try to install these: `Ubuntu Font Family, JetBrains Mono, Nerd Fonts`.
 In [Arch Linux](https://archlinux.org) you can install it with [pacman](https://wiki.archlinux.org/title/pacman) and [paru](https://github.com/Morganamilo/paru) (or with any other [AUR helper](https://wiki.archlinux.org/title/AUR_helpers))
 
 Pacman:

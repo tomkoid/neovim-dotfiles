@@ -32,7 +32,7 @@ case $distribution in
     ;;
   3)
     distribution_name="Debian"
-    sudo apt-get install ttf-ubuntu-font-family fonts-jetbrains-mono neovim git || exit 1
+    sudo apt-get install fonts-jetbrains-mono neovim git || exit 1
     ;;
   4)
     distribution_name="Gentoo"
