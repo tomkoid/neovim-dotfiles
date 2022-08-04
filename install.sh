@@ -92,10 +92,15 @@ fi
 
 cd ~/.config/nvim
 
-# Install packer
-echo "Installing packer.."
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim | echo "Error when cloning packer"
+if [ ! -d "$HOME/.local/share/nvim/site/pack/packer" ]
+then
+  # Install packer
+  echo "Installing packer.."
+  git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+   ~/.local/share/nvim/site/pack/packer/start/packer.nvim || echo "Error when cloning packer"
+else
+  echo "Skipped installing packer. Packer is already installed"
+fi
 
 echo "Done."
 
@@ -104,7 +109,7 @@ echo "3. Installing all plugins"
 echo "========================="
 
 # Launch NeoVim and install plugins
-nvim '+source ~/.config/nvim/lua/settings.lua' '+source ~/.config/nvim/lua/plugins.lua' +PackerUpdate '+echo "You may now leave with :qa"' | echo "Error when installing plugins"
+nvim '+source ~/.config/nvim/lua/settings.lua' '+source ~/.config/nvim/lua/plugins.lua' +PackerUpdate '+echo "You may now leave with :qa"' || echo "Error when installing plugins"
 
 echo "Done."
 
@@ -117,7 +122,7 @@ cd ~/.local/share/nvim/site/pack/packer/start/coc.nvim/
 echo "Building coc.nvim.."
 yarn build
 echo "Installing coc.nvim.. This may take a while."
-yarn install
+yarn install || echo "Error when installing coc.nvim"
 
 echo "NeoVim installation complete!"
 
