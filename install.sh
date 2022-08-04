@@ -8,30 +8,6 @@ echo "| |\  | |__| |_| |\ V /  | || |  | |"
 echo "|_| \_|_____\___/  \_/  |___|_|  |_|"
 echo "===================================="
 
-error=false
-if [ ! -f "/usr/bin/node" ]
-then
-  echo "Please install node.js first to run this script"
-  error=true
-fi
-
-if [ ! -f "/usr/bin/yarn" ]
-then
-  echo "Please install yarn first to run this script"
-  error=true
-fi
-
-if [ ! -f "/usr/bin/git" ]
-then
-  echo "Please install git first to run this script"
-  error=true
-fi
-
-if [ $error == true ]
-then
-  exit 1
-fi
-
 echo "1 - Arch / Arch based distributions"
 echo "2 - Fedora / Fedora based distributions"
 echo "3 - Debian / Debian based distributions"
@@ -71,6 +47,33 @@ case $distribution in
     echo "Please install dependencies manually with your package manager"
     ;;
 esac
+
+if [ ! $distribution_name == "Termux" ]
+then
+  error=false
+  if [ ! -f "/usr/bin/node" ]
+  then
+    echo "Please install node.js first to run this script"
+    error=true
+  fi
+  
+  if [ ! -f "/usr/bin/yarn" ]
+  then
+    echo "Please install yarn first to run this script"
+    error=true
+  fi
+  
+  if [ ! -f "/usr/bin/git" ]
+  then
+    echo "Please install git first to run this script"
+    error=true
+  fi
+  
+  if [ $error == true ]
+  then
+    exit 1
+  fi
+fi
 
 echo "Done."
 
