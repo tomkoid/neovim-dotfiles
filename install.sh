@@ -119,9 +119,9 @@ nvim '+source ~/.config/nvim/lua/settings.lua' '+source ~/.config/nvim/lua/plugi
 
 echo "Done."
 
-echo "================================="
-echo "4. Build and install intellisense"
-echo "================================="
+echo "======================================="
+echo "4. Building and installing intellisense"
+echo "======================================="
 
 # Install and build coc.nvim
 cd ~/.local/share/nvim/site/pack/packer/start/coc.nvim/
