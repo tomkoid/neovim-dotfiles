@@ -1,5 +1,9 @@
 #!/bin/bash
 
+nvim --version
+
+exit 0
+
 echo "===================================="
 echo " _   _ _____ _____     _____ __  __ "
 echo "| \ | | ____/ _ \ \   / /_ _|  \/  |"
@@ -32,7 +36,7 @@ case $distribution in
     ;;
   3)
     distribution_name="Debian"
-    sudo apt-get install fonts-jetbrains-mono neovim git || exit 1
+    sudo apt-get install fonts-jetbrains-mono git || exit 1
     ;;
   4)
     distribution_name="Gentoo"
@@ -66,6 +70,12 @@ then
   if [ ! -f "/usr/bin/git" ]
   then
     echo "Please install git first to run this script"
+    error=true
+  fi
+
+  if [ ! -f "/usr/bin/nvim" ] && [ ! -f "/snap/bin/nvim" ]
+  then
+    echo "Please install neovim first to run this script"
     error=true
   fi
   
