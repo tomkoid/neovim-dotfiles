@@ -24,23 +24,23 @@ echo "=========================="
 case $distribution in
   1)
     distribution_name="Arch"
-    sudo pacman -Syy ttf-ubuntu-font-family ttf-jetbrains-mono neovim git --noconfirm --needed || echo "Error when installing dependencies"
+    sudo pacman -Syy ttf-ubuntu-font-family ttf-jetbrains-mono neovim git --noconfirm --needed || exit 1
     ;;
   2)
     distribution_name="Fedora"
-    sudo dnf install jetbrains-mono-fonts neovim git || echo "Error when installing dependencies"
+    sudo dnf install jetbrains-mono-fonts neovim git || exit 1
     ;;
   3)
     distribution_name="Debian"
-    sudo apt-get install ttf-ubuntu-font-family fonts-jetbrains-mono neovim git || echo "Error when installing dependencies"  
+    sudo apt-get install ttf-ubuntu-font-family fonts-jetbrains-mono neovim git || exit 1
     ;;
   4)
     distribution_name="Gentoo"
-    sudo emerge media-fonts/ubuntu-font-family media-fonts/jetbrains-mono app-editors/neovim dev-vcs/git || echo "Error when installing dependencies"
+    sudo emerge media-fonts/ubuntu-font-family media-fonts/jetbrains-mono app-editors/neovim dev-vcs/git || exit 1
     ;;
   5)
     distribution_name="Termux"
-    apt update -y && apt install nodejs yarn git lua-language-server -y || echo "Error when installing dependencies"
+    apt update -y && apt install nodejs yarn git lua-language-server -y || exit 1
     ;;
   6)
     distribution_name="Other"
@@ -97,7 +97,7 @@ then
   # Install packer
   echo "Installing packer.."
   git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-   ~/.local/share/nvim/site/pack/packer/start/packer.nvim || echo "Error when cloning packer"
+   ~/.local/share/nvim/site/pack/packer/start/packer.nvim || exit 1
 else
   echo "Skipped installing packer. Packer is already installed"
 fi
@@ -109,7 +109,7 @@ echo "3. Installing all plugins"
 echo "========================="
 
 # Launch NeoVim and install plugins
-nvim '+source ~/.config/nvim/lua/settings.lua' '+source ~/.config/nvim/lua/plugins.lua' +PackerUpdate '+echo "You may now leave with :qa"' || echo "Error when installing plugins"
+nvim '+source ~/.config/nvim/lua/settings.lua' '+source ~/.config/nvim/lua/plugins.lua' +PackerUpdate '+echo "You may now leave with :qa"' || exit 1
 
 echo "Done."
 
@@ -122,7 +122,7 @@ cd ~/.local/share/nvim/site/pack/packer/start/coc.nvim/
 echo "Building coc.nvim.."
 yarn build
 echo "Installing coc.nvim.. This may take a while."
-yarn install || echo "Error when installing coc.nvim"
+yarn install || exit 1
 
 echo "NeoVim installation complete!"
 
