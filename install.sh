@@ -57,7 +57,7 @@ then
     error=true
   fi
   
-  if [ ! -f "/usr/bin/yarn" ]
+  if [ ! -f "/usr/bin/yarn" ] && [ ! -f "/usr/local/bin/yarn" ]
   then
     echo "Please install yarn first to run this script"
     error=true
