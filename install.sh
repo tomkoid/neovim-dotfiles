@@ -13,7 +13,7 @@ echo "2 - Fedora / Fedora based distributions"
 echo "3 - Debian / Debian based distributions"
 echo "4 - Gentoo / Gentoo based distributions"
 echo "5 - Termux"
-echp "6 - Other"
+echo "6 - Other"
 
 read -p "Please enter your Linux distribution: " distribution
 
@@ -95,7 +95,7 @@ cd ~/.config/nvim
 # Install packer
 echo "Installing packer.."
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim | echo "Error when cloning packer"
 
 echo "Done."
 
@@ -104,7 +104,9 @@ echo "3. Installing all plugins"
 echo "========================="
 
 # Launch NeoVim and install plugins
-nvim '+source ~/.config/nvim/lua/settings.lua' '+source ~/.config/nvim/lua/plugins.lua' +PackerUpdate '+echo "You may now leave with :qa"'
+nvim '+source ~/.config/nvim/lua/settings.lua' '+source ~/.config/nvim/lua/plugins.lua' +PackerUpdate '+echo "You may now leave with :qa"' | echo "Error when installing plugins"
+
+echo "Done."
 
 echo "================================="
 echo "4. Build and install intellisense"
