@@ -1,4 +1,4 @@
-[#](#) My dotfiles for NeoVim
+# My dotfiles for NeoVim
 
 ## About
 This config uses [Packer](https://github.com/hashicorp/packer) as a plugin manager.
