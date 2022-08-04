@@ -36,7 +36,7 @@ case $distribution in
     ;;
   4)
     distribution_name="Gentoo"
-    sudo emerge media-fonts/ubuntu-font-family media-fonts/jetbrains-mono app-editors/neovim dev-cvs/git || echo "Error when installing dependencies"
+    sudo emerge media-fonts/ubuntu-font-family media-fonts/jetbrains-mono app-editors/neovim dev-vcs/git || echo "Error when installing dependencies"
     ;;
   5)
     distribution_name="Termux"
