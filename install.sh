@@ -19,12 +19,6 @@ then
   error=true
 fi
 
-if [ ! -f "/usr/bin/lua-language-server" ]
-then
-  echo "Please install lua-language-server first to run this script"
-  error=true
-fi
-
 if [ $error == true ]
 then
   exit 1
