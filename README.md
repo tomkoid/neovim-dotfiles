@@ -29,8 +29,8 @@ $ cd ~/.config/nvim
 ```
 After that you can install [packer plugin manager](https://github.com/hashicorp/packer) and plugins with the following command.
 
-**WARNING FOR DEBIAN USERS**: If you are using Debian, make sure you have installed yarn from [npm](https://www.npmjs.com).
-If you don't have it already installed with [npm](https://www.npmjs.com), you can install it with: `$ sudo npm install -g yarn`. 
+**WARNING FOR DEBIAN USERS**: If you are using Debian, make sure you have installed yarn and node from [npm](https://www.npmjs.com).
+If you don't have it already installed with [npm](https://www.npmjs.com), you can install it with: `$ sudo npm install -g yarn node`. 
 ```
 $ ./install.sh
 ```
