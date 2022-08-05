@@ -28,6 +28,7 @@ require("packer").startup({
     use("numToStr/Sakura.nvim")
     use("vimwiki/vimwiki")
     use("junegunn/goyo.vim")
+    use("lukas-reineke/indent-blankline.nvim")
     use {
 	    "nvim-lualine/lualine.nvim",
 	    requires = { "kyazdani42/nvim-web-devicons", opt = true }
