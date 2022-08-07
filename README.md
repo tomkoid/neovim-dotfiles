@@ -35,7 +35,6 @@ If you don't have it already installed with [npm](https://www.npmjs.com), you ca
 $ ./install.sh
 ```
 This will launch the **install script**.
-If you are running **Termux**, instead of using the command **above**, you can use this command: `$ ./install_termux.sh`
 
 After the plugins are downloaded and installed, quit Packer with `q` and quit [NeoVim](https://github.com/neovim/neovim) with `:qa` and the installation process will continue.
 When the installation is done, you should have done.
