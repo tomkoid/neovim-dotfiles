@@ -24,19 +24,21 @@ echo "=========================="
 case $distribution in
   1)
     distribution_name="Arch"
-    sudo pacman -Syy ttf-ubuntu-font-family ttf-jetbrains-mono neovim git --noconfirm --needed || exit 1
+    sudo pacman -Syy ttf-ubuntu-font-family ttf-jetbrains-mono neovim git yarn node --noconfirm --needed || exit 1
     ;;
   2)
     distribution_name="Fedora"
-    sudo dnf install jetbrains-mono-fonts neovim git || exit 1
+    sudo dnf install jetbrains-mono-fonts neovim git npm || exit 1
+    sudo npm install -g yarn node || exit 1
     ;;
   3)
     distribution_name="Debian"
-    sudo apt-get install fonts-jetbrains-mono git || exit 1
+    sudo apt-get install fonts-jetbrains-mono git npm || exit 1
+    sudo npm install -g yarn node || exit 1 
     ;;
   4)
     distribution_name="Gentoo"
-    sudo emerge media-fonts/ubuntu-font-family media-fonts/jetbrains-mono app-editors/neovim dev-vcs/git || exit 1
+    sudo emerge media-fonts/ubuntu-font-family media-fonts/jetbrains-mono app-editors/neovim dev-vcs/git sys-apps/yarn net-libs/nodejs || exit 1
     ;;
   5)
     distribution_name="Termux"
@@ -132,7 +134,7 @@ yarn install || exit 1
 
 echo "NeoVim installation complete!"
 
-if [ $distribution_name == "Other" ]
+if [ $distribution_name == "Other" ] || [ $distribution_name == "Termux" ]
 then
   echo "You may need to install Ubuntu Font Family, JetBrains Mono and Nerd Fonts for emoji and symbols to work."
 fi

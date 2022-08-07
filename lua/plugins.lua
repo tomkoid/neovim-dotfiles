@@ -55,6 +55,7 @@ require("packer").startup({
     use("github/copilot.vim")
     use("ziglang/zig.vim")
     use("neovim/nvim-lspconfig")
+    use("alaviss/nim.nvim")
 
     end
 
