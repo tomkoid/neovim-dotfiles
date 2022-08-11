@@ -24,7 +24,7 @@ echo "=========================="
 case $distribution in
   1)
     distribution_name="Arch"
-    sudo pacman -Syy ttf-ubuntu-font-family ttf-jetbrains-mono neovim git yarn node --noconfirm --needed || exit 1
+    sudo pacman -Syy ttf-ubuntu-font-family ttf-jetbrains-mono neovim git yarn nodejs --noconfirm --needed || exit 1
     ;;
   2)
     distribution_name="Fedora"
