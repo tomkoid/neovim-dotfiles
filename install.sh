@@ -12,10 +12,11 @@ echo "1 - Arch / Arch based distributions"
 echo "2 - Fedora / Fedora based distributions"
 echo "3 - Debian / Debian based distributions"
 echo "4 - Gentoo / Gentoo based distributions"
-echo "5 - Nix OS"
-echo "6 - Nix package manager"
-echo "7 - Termux"
-echo "8 - Other"
+echo "5 - Void / Void based distributions"
+echo "6 - Nix OS"
+echo "7 - Nix package manager"
+echo "8 - Termux"
+echo "9 - Other"
 
 read -p "Please enter your Linux distribution / package manager: " distribution
 
@@ -43,28 +44,31 @@ case $distribution in
     sudo emerge media-fonts/ubuntu-font-family media-fonts/jetbrains-mono app-editors/neovim dev-vcs/git sys-apps/yarn net-libs/nodejs || exit 1
     ;;
   5)
-    distribution_name="NixOS"
-    nix-env -iA nixos.ubuntu_font_family
-    nix-env -iA nixos.jetbrains-mono
-    nix-env -iA nixos.neovim
-    nix-env -iA nixos.git
-    nix-env -iA nixos.yarn
-    nix-env -iA nixos.nodejs
-    ;;
+    distribution_name="Void"
+    sudo xbps-install -S ttf-ubuntu-font-family neovim git yarn nodejs || exit 1 
   6)
-    distribution_name="Nix"
-    nix-env -iA nixpkgs.ubuntu_font_family
-    nix-env -iA nixpkgs.jetbrains-mono
-    nix-env -iA nixpkgs.neovim
-    nix-env -iA nixpkgs.git
-    nix-env -iA nixpkgs.yarn
-    nix-env -iA nixpkgs.nodejs
+    distribution_name="NixOS"
+    nix-env -iA nixos.ubuntu_font_family || exit 1
+    nix-env -iA nixos.jetbrains-mono || exit 1
+    nix-env -iA nixos.neovim || exit 1
+    nix-env -iA nixos.git || exit 1
+    nix-env -iA nixos.yarn || exit 1
+    nix-env -iA nixos.nodejs || exit 1
     ;;
   7)
+    distribution_name="Nix"
+    nix-env -iA nixpkgs.ubuntu_font_family || exit 1
+    nix-env -iA nixpkgs.jetbrains-mono || exit 1
+    nix-env -iA nixpkgs.neovim || exit 1
+    nix-env -iA nixpkgs.git || exit 1
+    nix-env -iA nixpkgs.yarn || exit 1
+    nix-env -iA nixpkgs.nodejs || exit 1
+    ;;
+  8)
     distribution_name="Termux"
     apt update -y && apt install nodejs yarn git lua-language-server -y || exit 1
     ;;
-  8)
+  9)
     distribution_name="Other"
     echo "Please install dependencies manually with your package manager"
     ;;
