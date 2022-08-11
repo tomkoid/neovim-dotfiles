@@ -52,7 +52,7 @@ require("packer").startup({
 
     -- LANGUAGE SUPPORT
     use("neoclide/coc.nvim")
-    use("github/copilot.vim")
+    -- use("github/copilot.vim")
     use("ziglang/zig.vim")
     use("neovim/nvim-lspconfig")
     use("alaviss/nim.nvim")
