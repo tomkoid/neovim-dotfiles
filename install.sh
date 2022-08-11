@@ -46,6 +46,7 @@ case $distribution in
   5)
     distribution_name="Void"
     sudo xbps-install -S ttf-ubuntu-font-family neovim git yarn nodejs || exit 1 
+    ;;
   6)
     distribution_name="NixOS"
     nix-env -iA nixos.ubuntu_font_family || exit 1
