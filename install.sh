@@ -70,38 +70,38 @@ case $distribution in
     ;;
 esac
 
-if [ ! $distribution_name == "Termux" ] || [ ! $distribution_name == "Nix" ] || [ ! $distribution_name == "NixOS" ]
-then
-  error=false
-  if [ ! -f "/usr/bin/node" ]
-  then
-    echo "Please install node.js first to run this script"
-    error=true
-  fi
+# if [ ! $distribution_name == "Termux" ] || [ ! $distribution_name == "Nix" ] || [ ! $distribution_name == "NixOS" ]
+# then
+#   error=false
+#   if [ ! -f "/usr/bin/node" ]
+#   then
+#     echo "Please install node.js first to run this script"
+#     error=true
+#   fi
   
-  if [ ! -f "/usr/bin/yarn" ] && [ ! -f "/usr/local/bin/yarn" ]
-  then
-    echo "Please install yarn first to run this script"
-    error=true
-  fi
+#   if [ ! -f "/usr/bin/yarn" ] && [ ! -f "/usr/local/bin/yarn" ]
+#   then
+#     echo "Please install yarn first to run this script"
+#     error=true
+#   fi
   
-  if [ ! -f "/usr/bin/git" ]
-  then
-    echo "Please install git first to run this script"
-    error=true
-  fi
+#   if [ ! -f "/usr/bin/git" ]
+#   then
+#     echo "Please install git first to run this script"
+#     error=true
+#   fi
 
-  if [ ! -f "/usr/bin/nvim" ] && [ ! -f "/snap/bin/nvim" ]
-  then
-    echo "Please install neovim first to run this script"
-    error=true
-  fi
+#   if [ ! -f "/usr/bin/nvim" ] && [ ! -f "/snap/bin/nvim" ]
+#   then
+#     echo "Please install neovim first to run this script"
+#     error=true
+#   fi
   
-  if [ $error == true ]
-  then
-    exit 1
-  fi
-fi
+#   if [ $error == true ]
+#   then
+#     exit 1
+#   fi
+# fi
 
 echo "Done."
 
