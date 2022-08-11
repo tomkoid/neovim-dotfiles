@@ -137,7 +137,7 @@ echo "3. Installing all plugins"
 echo "========================="
 
 # Launch NeoVim and install plugins
-nvim '+source ~/.config/nvim/lua/settings.lua' '+source ~/.config/nvim/lua/plugins.lua' +PackerUpdate '+echo "You may now leave with :qa"' || exit 1
+nvim '+source ~/.config/nvim/lua/settings.lua' '+source ~/.config/nvim/lua/plugins.lua' --headless -c "autocmd User PackerComplete quitall" -c 'PackerSync' || exit 1
 
 echo "Done."
 
