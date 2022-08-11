@@ -15,6 +15,11 @@ map("n", "<C-l>", ":vertical resize +5<CR>") -- Decrease window size window by 5
 map('i', '<C-E>', '<ESC>A') -- Go to the end of the line
 map('i', '<C-A>', '<ESC>I') -- Go to the start of the line
 
+-- Intellisense
+vim.api.nvim_set_keymap("i", "<TAB>", "coc#pum#visible() ? coc#pum#next(1): '<TAB>'", {noremap = true, silent = true, expr = true})
+
+vim.api.nvim_set_keymap("i", "<CR>", "coc#pum#visible() ? coc#pum#confirm(): '<CR>'", {noremap = true, silent = true, expr = true})
+
 -- Map leader
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
