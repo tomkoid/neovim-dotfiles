@@ -12,8 +12,9 @@ echo "1 - Arch / Arch based distributions"
 echo "2 - Fedora / Fedora based distributions"
 echo "3 - Debian / Debian based distributions"
 echo "4 - Gentoo / Gentoo based distributions"
-echo "5 - Termux"
-echo "6 - Other"
+echo "5 - Nix (or any distribution with nix package manager)"
+echo "6 - Termux"
+echo "7 - Other"
 
 read -p "Please enter your Linux distribution: " distribution
 
@@ -41,10 +42,18 @@ case $distribution in
     sudo emerge media-fonts/ubuntu-font-family media-fonts/jetbrains-mono app-editors/neovim dev-vcs/git sys-apps/yarn net-libs/nodejs || exit 1
     ;;
   5)
+    distribution_name="Nix"
+    nix-env -iA nixpkgs.ubuntu_font_family
+    nix-env -iA nixpkgs.jetbrains-mono
+    nix-env -iA nixpkgs.neovim
+    nix-env -iA nixpkgs.git
+    nix-env -iA nixpkgs.yarn
+    nix-env -iA nixpkgs.nodejs
+  6)
     distribution_name="Termux"
     apt update -y && apt install nodejs yarn git lua-language-server -y || exit 1
     ;;
-  6)
+  7)
     distribution_name="Other"
     echo "Please install dependencies manually with your package manager"
     ;;
