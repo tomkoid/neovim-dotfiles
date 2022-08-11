@@ -29,15 +29,11 @@ $ cd ~/.config/nvim
 ```
 After that you can install [packer plugin manager](https://github.com/hashicorp/packer) and plugins with the following command.
 
-**WARNING FOR DEBIAN USERS**: If you are using Debian, make sure you have installed yarn and node from [npm](https://www.npmjs.com).
-If you don't have it already installed with [npm](https://www.npmjs.com), you can install it with: `$ sudo npm install -g yarn node`. 
+**WARNING FOR DEBIAN USERS**: If you are using Debian and you have nodejs or yarn installed with [APT](https://wikiless.tiekoetter.com/wiki/APT_(software)?lang=en), please uninstall it, because the installer will automatically install nodejs and yarn from [npm](https://www.npmjs.com).
 ```
 $ ./install.sh
 ```
 This will launch the **install script**.
-
-After the plugins are downloaded and installed, quit Packer with `q` and quit [NeoVim](https://github.com/neovim/neovim) with `:qa` and the installation process will continue.
-When the installation is done, you should have done.
 
 If you have trouble with fonts, try to install these: `Ubuntu Font Family, JetBrains Mono, Nerd Fonts`.
 In [Arch Linux](https://archlinux.org) you can install it with [pacman](https://wiki.archlinux.org/title/pacman) and [paru](https://github.com/Morganamilo/paru) (or with any other [AUR helper](https://wiki.archlinux.org/title/AUR_helpers))
@@ -52,7 +48,7 @@ $ paru nerd-fonts-complete
 ```
 
 This package can be large, so this may take a while to install.
-After the installation of fonts is complete, you're done!
+After the installation is complete, you're done!
 
 ### Screenshots:
 <img src="images/start.png">
