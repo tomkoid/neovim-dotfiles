@@ -27,7 +27,7 @@ echo "=========================="
 case $distribution in
   1)
     distribution_name="Arch"
-    sudo pacman -Syy ttf-ubuntu-font-family ttf-jetbrains-mono neovim git yarn nodejs --noconfirm --needed || exit 1
+    sudo pacman -Syy ttf-ubuntu-font-family ttf-jetbrains-mono neovim git yarn nodejs ttf-fira-code ttf-fira-mono ttf-fira-sans --noconfirm --needed || exit 1
     ;;
   2)
     distribution_name="Fedora"
@@ -45,7 +45,7 @@ case $distribution in
     ;;
   5)
     distribution_name="Void"
-    sudo xbps-install -S ttf-ubuntu-font-family neovim git yarn nodejs || exit 1 
+    sudo xbps-install -S ttf-ubuntu-font-family font-firacode neovim git yarn nodejs || exit 1 
     ;;
   6)
     distribution_name="NixOS"
@@ -161,7 +161,7 @@ echo "NeoVim installation complete!"
 
 if [ $distribution_name == "Other" ] || [ $distribution_name == "Termux" ]
 then
-  echo "You may need to install Ubuntu Font Family, JetBrains Mono and Nerd Fonts for emoji and symbols to work."
+  echo "You may need to install Ubuntu Font Family, JetBrains Mono, FiraCode and Nerd Fonts for emoji and symbols to work."
 fi
 
 cd $orig_dir
