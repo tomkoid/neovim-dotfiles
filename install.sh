@@ -70,7 +70,7 @@ case $distribution in
     ;;
 esac
 
-if [ ! $distribution_name == "Termux" ]
+if [ ! $distribution_name == "Termux" ] || [ ! $distribution_name == "Nix" ] || [ ! $distribution_name == "NixOS" ]
 then
   error=false
   if [ ! -f "/usr/bin/node" ]
