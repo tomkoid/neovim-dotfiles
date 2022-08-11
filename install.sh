@@ -49,6 +49,7 @@ case $distribution in
     nix-env -iA nixpkgs.git
     nix-env -iA nixpkgs.yarn
     nix-env -iA nixpkgs.nodejs
+    ;;
   6)
     distribution_name="Termux"
     apt update -y && apt install nodejs yarn git lua-language-server -y || exit 1
