@@ -43,7 +43,24 @@ o.mouse = "a"
 -- Clipboard
 o.clipboard = "unnamedplus"
 
--- For Neovide
+-- Highlights for Neovide
+-- Need to use `vim.cmd`, because NeoVim still doesn't have any API on this
+-- NEW:
+vim.cmd[[highlight LineNr           guifg=#5b6268 ctermfg=8    guibg=#282c34 ctermbg=none  cterm=none]]
+vim.cmd[[highlight VertSplit        guifg=#1c1f24 ctermfg=0    guifg=#5b6268 ctermbg=8     cterm=none]]
+vim.cmd[[highlight Statement        guifg=#98be65 ctermfg=2    guibg=none    ctermbg=none  cterm=none]]
+vim.cmd[[highlight Directory        guifg=#51afef ctermfg=4    guibg=none    ctermbg=none  cterm=none]]
+vim.cmd[[highlight NERDTreeClosable guifg=#98be65 ctermfg=2]]
+vim.cmd[[highlight NERDTreeOpenable guifg=#5b6268 ctermfg=8]]
+vim.cmd[[highlight Comment          guifg=#51afef ctermfg=4    guibg=none    ctermbg=none  cterm=italic]]
+vim.cmd[[highlight Constant         guifg=#3071db ctermfg=12   guibg=none    ctermbg=none  cterm=none]]
+vim.cmd[[highlight Special          guifg=#51afef ctermfg=4    guibg=none    ctermbg=none  cterm=none]]
+vim.cmd[[highlight Identifier       guifg=#5699af ctermfg=6    guibg=none    ctermbg=none  cterm=none]]
+vim.cmd[[highlight PreProc          guifg=#c678dd ctermfg=5    guibg=none    ctermbg=none  cterm=none]]
+vim.cmd[[highlight String           guifg=#3071db ctermfg=12   guibg=none    ctermbg=none  cterm=none]]
+vim.cmd[[highlight Number           guifg=#ff6c6b ctermfg=1    guibg=none    ctermbg=none  cterm=none]]
+vim.cmd[[highlight Function         guifg=#ff6c6b ctermfg=1    guibg=none    ctermbg=none  cterm=none]]
+-- OLD:
 -- highlight.create("LineNr", { guifg = "#5b6268", ctermfg = 8, guibg = "#282c34", ctermbg = "none",  cterm = "none" }, false)
 -- highlight.create("VertSplit", { guifg = "#1c1f24", ctermfg = 0, guibg = "#5b6268", ctermbg = 8, cterm = "none" }, false)
 -- highlight.create("Statement", { guifg = "#98be65", ctermfg = 2, guibg = "none", ctermbg = "none", cterm = "none" }, false)
