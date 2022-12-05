@@ -2,7 +2,12 @@ local function map(m, k, v)
     vim.keymap.set(m, k, v, { silent = true })
 end
 
-map('n', '<C-t>', ':NERDTreeToggle<CR>') -- Toggle NERDTree
+-- Map leader
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+map('n', '<C-t>', ':NvimTreeToggle<CR>') -- Toggle nvim-tree
+map('n', '<leader>f', ':Telescope find_files<CR>') -- Open Telescope file manager
 map("n", "<C-s>", "<C-W>W") -- Switch focus to next window
 map("n", "<C-Left>", ":tabprevious<CR>") -- Switch to previous tab
 map("n", "<C-Right>", ":tabnext<CR>") -- Switch to next tab
@@ -19,7 +24,3 @@ map('i', '<C-A>', '<ESC>I') -- Go to the start of the line
 vim.api.nvim_set_keymap("i", "<TAB>", "coc#pum#visible() ? coc#pum#next(1): '<TAB>'", {noremap = true, silent = true, expr = true})
 
 vim.api.nvim_set_keymap("i", "<CR>", "coc#pum#visible() ? coc#pum#confirm(): '<CR>'", {noremap = true, silent = true, expr = true})
-
--- Map leader
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '

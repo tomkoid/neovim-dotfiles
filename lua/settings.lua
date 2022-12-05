@@ -4,9 +4,6 @@ local o = vim.o
 
 o.encoding = "utf-8"
 
--- Set colorscheme
-vim.cmd(":colorscheme onedark")
-
 -- Set tabsize
 o.shiftwidth = 2
 o.tabstop = 2
@@ -86,3 +83,10 @@ o.laststatus = 3
 -- Decrease update time
 o.timeoutlen = 500
 o.updatetime = 200
+
+-- Set colorscheme
+vim.cmd.colorscheme "catppuccin-macchiato"
+
+-- Plugins
+-- empty setup using defaults
+require("nvim-tree").setup()

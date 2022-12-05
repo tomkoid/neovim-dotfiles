@@ -30,6 +30,10 @@ require("packer").startup({
     use("junegunn/goyo.vim")
     use("lukas-reineke/indent-blankline.nvim")
     use {
+	    "windwp/nvim-autopairs",
+      config = function() require("nvim-autopairs").setup {} end
+    }
+    use {
 	    "nvim-lualine/lualine.nvim",
 	    requires = { "kyazdani42/nvim-web-devicons", opt = true }
     }
@@ -39,10 +43,17 @@ require("packer").startup({
     }
 
     -- FILE MANAGEMENT
-    use("preservim/nerdtree")
+    -- use("preservim/nerdtree")
+    use {
+      'nvim-tree/nvim-tree.lua',
+      requires = {
+        'nvim-tree/nvim-web-devicons', -- file icons
+      },
+    }
 
     -- COLORSCHEMES
     use("RRethy/nvim-base16")
+    use { "catppuccin/nvim", as = "catppuccin" }
 
     -- TELESCOPE PLUGINS
     use("nvim-telescope/telescope.nvim")
