@@ -19,6 +19,7 @@ require("plugins")
 require("keybindings")
 require("autocmd")
 require("neovide")
+require("colors")
 if is_module_available("alpha") then
   require("dashboard")
 end
