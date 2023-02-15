@@ -46,13 +46,21 @@ require("packer").startup({
 
     -- FILE MANAGEMENT
     -- use("preservim/nerdtree")
+    -- use {
+    --   'nvim-tree/nvim-tree.lua',
+    --   requires = {
+    --     'nvim-tree/nvim-web-devicons', -- file icons
+    --   },
+    -- }
     use {
-      'nvim-tree/nvim-tree.lua',
-      requires = {
-        'nvim-tree/nvim-web-devicons', -- file icons
-      },
+      "nvim-neo-tree/neo-tree.nvim",
+      branch = "v2.x",
+      requires = { 
+        "nvim-lua/plenary.nvim",
+        "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+        "MunifTanjim/nui.nvim",
+      }
     }
-    use("theprimeagen/harpoon")
 
     -- COLORSCHEMES
     use("RRethy/nvim-base16")

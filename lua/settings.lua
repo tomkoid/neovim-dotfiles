@@ -15,9 +15,7 @@ o.number = true
 o.cursorline = true
 o.wrap = true
 o.expandtab = true
-o.incsearch = true
-o.autochdir = true -- Change CWD after opening a file
-o.hlsearch = true
+o.autochdir = false -- Change CWD after opening a file
 o.showcmd = true
 o.showmatch = true
 o.showmode = true
@@ -31,6 +29,10 @@ o.wildmenu = true
 o.wildmode = "list:longest"
 o.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*xlsx"
 o.backspace = "indent,eol,start"
+
+-- Search
+o.hlsearch = false
+o.incsearch = true
 
 g.rehash256 = 1
 
@@ -89,4 +91,4 @@ vim.cmd.colorscheme "catppuccin-macchiato"
 
 -- Plugins
 -- empty setup using defaults
-require("nvim-tree").setup()
+-- require("nvim-tree").setup()

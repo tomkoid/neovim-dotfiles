@@ -14,9 +14,9 @@ local function is_module_available(name)
 end
 
 -- Load all my scripts
+require("keybindings")
 require("settings")
 require("plugins")
-require("keybindings")
 require("autocmd")
 require("neovide")
 require("colors")
@@ -39,9 +39,9 @@ if is_module_available("lspconfig") then
   })
 end
 
-
 ---Pretty print lua table
 function _G.dump(...)
     local objects = vim.tbl_map(vim.inspect, { ... })
     print(unpack(objects))
 end
+
