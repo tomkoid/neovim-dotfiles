@@ -28,15 +28,7 @@ if is_module_available("lualine") then
 end
 
 if is_module_available("lspconfig") then
-  require("lspconfig").sumneko_lua.setup({
-    settings = {
-      Lua = {
-        diagnostics = {
-          globals = {"vim"},
-        },
-      },
-    },
-  })
+  require("lspconfig")
 end
 
 ---Pretty print lua table
