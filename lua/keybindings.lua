@@ -18,7 +18,7 @@ vim.keymap.set("v", "k", ":m '<-2<cr>gv=gv")
 
 map('n', '<c-t>', ':NeoTreeShowToggle<cr>') -- toggle nvim-tree
 map('n', '<leader>f', ":lua telescope_files()<cr>") -- open telescope file manager
-map("n", "<c-s>", "<c-w>w") -- switch focus to next window
+map("n", "<leader>s", "<c-w>w") -- switch focus to next window
 map("n", "<c-left>", ":tabprevious<cr>") -- switch to previous tab
 map("n", "<c-right>", ":tabnext<cr>") -- switch to next tab
 map("n", "<c-b>", ":vnew term://zsh<cr>") -- open new terminal

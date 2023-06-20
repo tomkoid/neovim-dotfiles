@@ -22,9 +22,11 @@ require("packer").startup({
     use("terryma/vim-multiple-cursors")
     use("ryanoasis/vim-devicons")
     use("voldikss/vim-floaterm")
-    use("chrisbra/Colorizer")
+    use {
+      "norcalli/nvim-colorizer.lua",
+      config = function() require("colorizer").setup() end
+    } -- colorize hex colors
     use("junegunn/fzf")
-    use("ap/vim-css-color")
     use("junegunn/vim-emoji")
     use("kyazdani42/nvim-web-devicons")
     use("numToStr/Sakura.nvim")
@@ -32,8 +34,18 @@ require("packer").startup({
     use("junegunn/goyo.vim")
     use("lukas-reineke/indent-blankline.nvim")
     use {
+      "windwp/nvim-ts-autotag",
+      config = function() require('nvim-ts-autotag').setup() end
+    }
+    use {
 	    "windwp/nvim-autopairs",
       config = function() require("nvim-autopairs").setup {} end
+    }
+    use {
+      'lewis6991/gitsigns.nvim',
+      config = function()
+        require('gitsigns').setup()
+      end
     }
     use {
 	    "nvim-lualine/lualine.nvim",
@@ -43,6 +55,7 @@ require("packer").startup({
 	    'goolord/alpha-nvim',
     	requires = { 'kyazdani42/nvim-web-devicons' },
     }
+    use('MunifTanjim/prettier.nvim')
 
     -- FILE MANAGEMENT
     -- use("preservim/nerdtree")
@@ -98,6 +111,19 @@ require("packer").startup({
     use("ziglang/zig.vim")
     use("neovim/nvim-lspconfig")
     use("alaviss/nim.nvim")
+    use {
+      "akinsho/flutter-tools.nvim",
+      requires = { "nvim-lua/plenary.nvim" },
+      config = function()
+        require("flutter-tools").setup()
+      end,
+    }
+    use {
+      "rust-lang/rust.vim",
+      config = function ()
+        vim.g.rustfmt_autosave = 1
+      end
+    }
 
     end
 
