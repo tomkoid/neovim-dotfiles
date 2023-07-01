@@ -13,8 +13,8 @@ end
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.keymap.set("v", "j", ":m '>+1<cr>gv=gv")
-vim.keymap.set("v", "k", ":m '<-2<cr>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<cr>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<cr>gv=gv")
 
 map('n', '<c-t>', ':NeoTreeShowToggle<cr>') -- toggle nvim-tree
 map('n', '<leader>f', ":lua telescope_files()<cr>") -- open telescope file manager
