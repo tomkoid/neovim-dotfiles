@@ -76,6 +76,9 @@ require("packer").startup({
       use("nvim-telescope/telescope-symbols.nvim")
       use("nvim-telescope/telescope-file-browser.nvim")
 
+      -- TABS
+      use 'romgrk/barbar.nvim'
+
       -- LANGUAGE SUPPORT
       use {
         'VonHeikemen/lsp-zero.nvim',
