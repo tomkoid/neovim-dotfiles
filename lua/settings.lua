@@ -83,8 +83,8 @@ o.splitright = true
 o.laststatus = 3
 
 -- Decrease update time
-o.timeoutlen = 500
-o.updatetime = 200
+o.timeoutlen = 40
+o.updatetime = 30
 
 -- Set colorscheme
 vim.cmd.colorscheme "catppuccin-mocha"
