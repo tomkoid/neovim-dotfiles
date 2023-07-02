@@ -14,7 +14,7 @@ local function is_module_available(name)
 end
 
 -- Load all my scripts
-require("keybindings")
+require("remap")
 require("settings")
 require("plugins")
 require("autocmd")

@@ -13,10 +13,10 @@ end
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.keymap.set("v", "J", ":m '>+1<cr>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<cr>gv=gv")
+map("v", "J", ":m '>+1<cr>gv=gv")
+map("v", "K", ":m '<-2<cr>gv=gv")
 
-map('n', '<c-t>', ':NeoTreeShowToggle<cr>') -- toggle nvim-tree
+map('n', '<leader>t', ":NvimTreeToggle<cr>") -- open telescope file manager
 map('n', '<leader>f', ":lua telescope_files()<cr>") -- open telescope file manager
 map("n", "<leader>s", "<c-w>w") -- switch focus to next window
 map("n", "<c-left>", ":tabprevious<cr>") -- switch to previous tab
@@ -27,8 +27,8 @@ map("n", "d-v", "")
 map("n", "<f4>", ":nohlsearch<cr>") -- clear search highlighting
 map("n", "<c-h>", ":vertical resize -5<cr>") -- increase window size by 5%
 map("n", "<c-l>", ":vertical resize +5<cr>") -- decrease window size window by 5%
-map('i', '<c-e>', '<esc>a') -- go to the end of the line
-map('i', '<c-a>', '<esc>i') -- go to the start of the line
+map('n', '<leader>e', '<esc>$') -- go to the end of the line
+map('n', '<leader>a', '<esc>^') -- go to the start of the line
 
 -- intellisense
 -- vim.api.nvim_set_keymap("i", "<tab>", "coc#pum#visible() ? coc#pum#next(1): '<tab>'", {noremap = true, silent = true, expr = true})
