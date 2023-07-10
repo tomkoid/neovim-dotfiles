@@ -7,17 +7,21 @@ local function map(m, k, v)
   vim.keymap.set(m, k, v, { silent = true })
 end
 
-
+local telescope = require('telescope.builtin')
 
 -- Map leader
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- best keybindings ever
 map("v", "J", ":m '>+1<cr>gv=gv")
 map("v", "K", ":m '<-2<cr>gv=gv")
 
-map('n', '<leader>t', ":NvimTreeToggle<cr>") -- open telescope file manager
-map('n', '<leader>f', ":lua telescope_files()<cr>") -- open telescope file manager
+map('n', '<leader>t', ":NvimTreeToggle<cr>") -- open nvim tree 
+map('n', '<leader>ff', telescope.find_files) -- open telescope file manager
+map('n', '<leader>fg', telescope.live_grep) -- open telescope live grep 
+map('n', '<leader>fb', telescope.buffers) -- open list of all buffers in telescope
+map('n', '<leader>fh', telescope.help_tags) -- open help tags 
 map("n", "<leader>s", "<c-w>w") -- switch focus to next window
 map("n", "<c-left>", ":tabprevious<cr>") -- switch to previous tab
 map("n", "<c-right>", ":tabnext<cr>") -- switch to next tab

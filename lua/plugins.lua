@@ -16,7 +16,12 @@ require("packer").startup({
       use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
       use("nvim-treesitter/playground")
       use("honza/vim-snippets")
-      use("tpope/vim-commentary")
+      use {
+          'numToStr/Comment.nvim',
+          config = function()
+              require('Comment').setup()
+          end
+      }
       use("nvim-lua/plenary.nvim")
       use("terryma/vim-multiple-cursors")
       use("ryanoasis/vim-devicons")
@@ -78,6 +83,20 @@ require("packer").startup({
 
       -- TABS
       use 'romgrk/barbar.nvim'
+
+      -- NOICE
+      use {
+        "folke/noice.nvim",
+        -- event = "VeryLazy",
+        requires = {
+          -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+          {"MunifTanjim/nui.nvim"},
+          -- OPTIONAL:
+          --   `nvim-notify` is only needed, if you want to use the notification view.
+          --   If not available, we use `mini` as the fallback
+          {"rcarriga/nvim-notify"},
+        }
+      }
 
       -- LANGUAGE SUPPORT
       use {
