@@ -1,151 +1,175 @@
-local enable_plugins = true
+-- local enable_plugins = true 
+--
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+-- 	group = vim.api.nvim_create_augroup("LAZY", { clear = true }),
+-- 	pattern = "plugins.lua",
+-- 	command = "source <afile> | Lazy sync",
+-- })
 
-vim.api.nvim_create_autocmd("BufWritePost", {
-  group = vim.api.nvim_create_augroup("PACKER", { clear = true }),
-  pattern = "plugins.lua",
-  command = "source <afile> | PackerCompile"
-})
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
-require("packer").startup({
-  function(use)
-    if enable_plugins == true then
-      -- PACKAGE MANAGERS
-      use("wbthomason/packer.nvim")
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
 
-      -- EXTRA PLUGINS
-      use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
-      use("nvim-treesitter/playground")
-      use("honza/vim-snippets")
-      use {
-          'numToStr/Comment.nvim',
-          config = function()
-              require('Comment').setup()
-          end
-      }
-      use("nvim-lua/plenary.nvim")
-      use("terryma/vim-multiple-cursors")
-      use("ryanoasis/vim-devicons")
-      use("voldikss/vim-floaterm")
-      use {
-        "norcalli/nvim-colorizer.lua",
-        config = function() require("colorizer").setup() end
-      } -- colorize hex colors
-      use("junegunn/fzf")
-      use("junegunn/vim-emoji")
-      use("kyazdani42/nvim-web-devicons")
-      use("numToStr/Sakura.nvim")
-      use("vimwiki/vimwiki")
-      use("junegunn/goyo.vim")
-      use("lukas-reineke/indent-blankline.nvim")
-      use {
-        "windwp/nvim-ts-autotag",
-        config = function() require('nvim-ts-autotag').setup() end
-      }
-      use {
-        "windwp/nvim-autopairs",
-        config = function() require("nvim-autopairs").setup {} end
-      }
-      use {
-        'lewis6991/gitsigns.nvim',
-        config = function()
-          require('gitsigns').setup()
-        end
-      }
-      use {
-        "nvim-lualine/lualine.nvim",
-        requires = { "kyazdani42/nvim-web-devicons", opt = true }
-      }
-      use {
-        'goolord/alpha-nvim',
-        requires = { 'kyazdani42/nvim-web-devicons' },
-      }
-      use('MunifTanjim/prettier.nvim')
+vim.opt.rtp:prepend(lazypath)
 
-      -- FILE MANAGEMENT
-      -- use("preservim/nerdtree")
-      -- use {
-      --   'nvim-tree/nvim-tree.lua',
-      --   requires = {
-      --     'nvim-tree/nvim-web-devicons', -- file icons
-      --   },
-      -- }
-      use("nvim-tree/nvim-tree.lua")
+require("lazy").setup({
+  -- EXTRA PLUGINS
+  {
+    "nvim-treesitter/nvim-treesitter",
+    -- lazy = false,
+    -- cmd = "TSUpdate"
+  },
+  "nvim-treesitter/playground",
+  "honza/vim-snippets",
+  {
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup()
+    end,
+  },
+  "nvim-lua/plenary.nvim",
+  "terryma/vim-multiple-cursors",
+  "ryanoasis/vim-devicons",
+  "voldikss/vim-floaterm",
+  {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup()
+    end,
+  }, -- colorize hex colors
+  "junegunn/fzf",
+  "junegunn/vim-emoji",
+  "kyazdani42/nvim-web-devicons",
+  "numToStr/Sakura.nvim",
+  "vimwiki/vimwiki",
+  "junegunn/goyo.vim",
+  "lukas-reineke/indent-blankline.nvim",
+  {
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  },
+  {
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup({})
+    end,
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup()
+    end,
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "kyazdani42/nvim-web-devicons", opt = true },
+  },
+  {
+    "goolord/alpha-nvim",
+    dependencies = { "kyazdani42/nvim-web-devicons" },
+  },
 
-      -- COLORSCHEMES
-      use("RRethy/nvim-base16")
-      use { "catppuccin/nvim", as = "catppuccin" }
+  -- FILE MANAGEMENT
+  -- use("preservim/nerdtree")
+  -- use {
+  --   'nvim-tree/nvim-tree.lua',
+  --   requires = {
+  --     'nvim-tree/nvim-web-devicons', -- file icons
+  --   },
+  -- }
+  "nvim-tree/nvim-tree.lua",
 
-      -- TELESCOPE PLUGINS
-      use("nvim-telescope/telescope.nvim")
-      use("nvim-telescope/telescope-fzf-native.nvim")
-      use("nvim-telescope/telescope-symbols.nvim")
-      use("nvim-telescope/telescope-file-browser.nvim")
+  -- COLORSCHEMES
+  "RRethy/nvim-base16",
+  {
+    "catppuccin/nvim",
+    lazy = false, 
+    priority = 1000, 
+    name = "catppuccin",
+    config = function()
+      vim.cmd("colorscheme catppuccin-mocha")
+    end,
+  },
 
-      -- TABS
-      use 'romgrk/barbar.nvim'
+  -- TELESCOPE PLUGINS
+  "nvim-telescope/telescope.nvim",
+  "nvim-telescope/telescope-fzf-native.nvim",
+  "nvim-telescope/telescope-symbols.nvim",
+  "nvim-telescope/telescope-file-browser.nvim",
 
-      -- NOICE
-      use {
-        "folke/noice.nvim",
-        -- event = "VeryLazy",
-        requires = {
-          -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-          {"MunifTanjim/nui.nvim"},
-          -- OPTIONAL:
-          --   `nvim-notify` is only needed, if you want to use the notification view.
-          --   If not available, we use `mini` as the fallback
-          {"rcarriga/nvim-notify"},
-        }
-      }
+  -- TABS
+  "romgrk/barbar.nvim",
 
-      -- LANGUAGE SUPPORT
-      use {
-        'VonHeikemen/lsp-zero.nvim',
-          requires = {
-            -- LSP Support
-            {'neovim/nvim-lspconfig'},
-            {'williamboman/mason.nvim'},
-            {'williamboman/mason-lspconfig.nvim'},
-
-            -- Autocompletion
-            {'hrsh7th/nvim-cmp'},
-            {'hrsh7th/cmp-buffer'},
-            {'hrsh7th/cmp-path'},
-            {'saadparwaiz1/cmp_luasnip'},
-            {'hrsh7th/cmp-nvim-lsp'},
-            {'hrsh7th/cmp-nvim-lua'},
-
-            -- Snippets
-            {'L3MON4D3/LuaSnip'},
-            {'rafamadriz/friendly-snippets'},
-          }
-      }
-      -- use("github/copilot.vim")
-      use("ziglang/zig.vim")
-      use("neovim/nvim-lspconfig")
-      use("alaviss/nim.nvim")
-      use {
-        "akinsho/flutter-tools.nvim",
-        requires = { "nvim-lua/plenary.nvim" },
-        config = function()
-          require("flutter-tools").setup()
-        end,
-      }
-      use {
-        "rust-lang/rust.vim",
-        config = function ()
-          vim.g.rustfmt_autosave = 1
-        end
-      }
-
-    end
-
-  end,
-  config = {
-    display = {
-      open_fn = function()
-        return require('packer.util').float({ border = 'single' })
-      end,
+  -- NOICE
+  {
+    "folke/noice.nvim",
+    -- event = "VeryLazy",
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      { "MunifTanjim/nui.nvim" },
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      { "rcarriga/nvim-notify" },
     },
   },
+
+  -- LANGUAGE SUPPORT
+  {
+    "VonHeikemen/lsp-zero.nvim",
+    dependencies = {
+      -- LSP Support
+      { "neovim/nvim-lspconfig" },
+      { "williamboman/mason.nvim" },
+      { "williamboman/mason-lspconfig.nvim" },
+
+      -- Autocompletion
+      { "hrsh7th/nvim-cmp" },
+      { "hrsh7th/cmp-buffer" },
+      { "hrsh7th/cmp-path" },
+      { "saadparwaiz1/cmp_luasnip" },
+      { "hrsh7th/cmp-nvim-lsp" },
+      { "hrsh7th/cmp-nvim-lua" },
+
+      -- Snippets
+      { "L3MON4D3/LuaSnip" },
+      { "rafamadriz/friendly-snippets" },
+    },
+  },
+  { "zbirenbaum/copilot.lua" },
+  { "mhartington/formatter.nvim" },
+  -- use {
+  --   "zbirenbaum/copilot-cmp",
+  --   after = { "copilot.lua" },
+  --   config = function ()
+  --     require("copilot_cmp").setup()
+  --   end
+  -- }
+  "ziglang/zig.vim",
+  "neovim/nvim-lspconfig",
+  "alaviss/nim.nvim",
+  {
+    "akinsho/flutter-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("flutter-tools").setup()
+    end,
+  },
+  {
+    "rust-lang/rust.vim",
+    config = function()
+      vim.g.rustfmt_autosave = 1
+    end,
+  }
 })
