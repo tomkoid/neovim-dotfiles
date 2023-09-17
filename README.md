@@ -30,7 +30,6 @@ This package can be large, so this may take a while to install.
 After the installation is complete, you're done!
 
 ### Screenshots:
-<img src="images/start.png">
 
 <img src="images/in_action.png">
 
