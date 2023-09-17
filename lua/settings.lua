@@ -87,7 +87,7 @@ o.timeoutlen = 400
 o.updatetime = 30
 
 -- Set colorscheme
-vim.cmd.colorscheme "catppuccin-mocha"
+--vim.cmd.colorscheme "catppuccin-mocha"
 
 -- Plugins
 -- empty setup using defaults

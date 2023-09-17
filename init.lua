@@ -14,6 +14,7 @@ local function is_module_available(name)
 end
 
 -- Load all my scripts
+-- require("plugin-manager")
 require("remap")
 require("settings")
 require("plugins")
