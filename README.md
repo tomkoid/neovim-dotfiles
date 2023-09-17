@@ -1,4 +1,4 @@
-[#](#) My dotfiles for NeoVim
+# My dotfiles for NeoVim
 
 ## About
 This config uses [Lazy.nvim](https://github.com/folke/lazy.nvim) as a plugin manager.
