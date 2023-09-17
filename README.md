@@ -1,7 +1,7 @@
 [#](#) My dotfiles for NeoVim
 
 ## About
-This config uses [Packer](https://github.com/hashicorp/packer) as a plugin manager.
+This config uses [Lazy.nvim](https://github.com/folke/lazy.nvim) as a plugin manager.
 
 | Keybinding            | Description                                 |
 |-----------------------|---------------------------------------------|
@@ -19,7 +19,7 @@ This config uses [Packer](https://github.com/hashicorp/packer) as a plugin manag
 
 ## Setup
 First, you have to clone this repo to your machine with [git](https://github.com/git/git).
-If you already have your configs in **~/.config/nvim**, backup them and delete them first.
+If you already have your config in **~/.config/nvim**, backup them and delete them first.
 ```
 $ git clone https://gitlab.com/Tomkoid/neovim-dotfiles.git ~/.config/nvim
 ```
@@ -27,24 +27,17 @@ Now, to run the **install script**, you have to CD into **~/.config/nvim** direc
 ```
 $ cd ~/.config/nvim
 ```
-After that you can install [packer plugin manager](https://github.com/hashicorp/packer) and plugins with the following command.
-
-**WARNING FOR DEBIAN USERS**: If you are using Debian and you have nodejs or yarn installed with [APT](https://wikiless.tiekoetter.com/wiki/APT_(software)?lang=en), please uninstall it, because the installer will automatically install nodejs and yarn from [npm](https://www.npmjs.com).
-```
-$ ./install.sh
-```
-This will launch the **install script**.
 
 If you have trouble with fonts, try to install these: `Ubuntu Font Family, JetBrains Mono, Nerd Fonts`.
 In [Arch Linux](https://archlinux.org) you can install it with [pacman](https://wiki.archlinux.org/title/pacman) and [paru](https://github.com/Morganamilo/paru) (or with any other [AUR helper](https://wiki.archlinux.org/title/AUR_helpers))
 
 Pacman:
 ```
-$ pacman -S ttf-ubuntu-font-family ttf-jetbrains-mono ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono
+$ pacman -S noto-fonts-emoji noto-fonts ttf-ubuntu-font-family ttf-jetbrains-mono ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono
 ```
 And with AUR helper:
 ```
-$ paru nerd-fonts-complete
+$ paru nerd-fonts-meta
 ```
 
 This package can be large, so this may take a while to install.
