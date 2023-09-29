@@ -35,6 +35,7 @@ o.hlsearch = false
 o.incsearch = true
 
 g.rehash256 = 1
+g.syntastic_auto_jump = false
 
 -- Enable mouse
 o.mouse = "a"
@@ -84,7 +85,7 @@ o.laststatus = 3
 
 -- Decrease update time
 o.timeoutlen = 400
-o.updatetime = 30
+o.updatetime = 100
 
 -- Set colorscheme
 --vim.cmd.colorscheme "catppuccin-mocha"

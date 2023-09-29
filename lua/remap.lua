@@ -40,6 +40,11 @@ map("n", "<c-l>", ":vertical resize +5<cr>") -- decrease window size window by 5
 map("n", "<leader>e", "<esc>$") -- go to the end of the line
 map("n", "<leader>a", "<esc>^") -- go to the start of the line
 
+-- LSP SAGA
+map("n", "<leader>rr", ":Lspsaga rename<CR>")
+map("n", "<leader>ca", ":Lspsaga code_action<CR>")
+map("n", "<leader>gd", ":Lspsaga peek_definition<CR>")
+
 -- TABS
 map("n", "<leader>n", ":BufferNext<CR>") -- next tab
 map("n", "<leader>mn", ":BufferMoveNext<CR>") -- move to next
