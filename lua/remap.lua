@@ -1,8 +1,3 @@
-function telescope_files()
-	local utils = require("telescope.utils")
-	require("telescope.builtin").find_files({ cwd = utils.buffer_dir() })
-end
-
 local function map(m, k, v)
 	vim.keymap.set(m, k, v, { silent = true })
 end
@@ -40,10 +35,10 @@ map("n", "<c-l>", ":vertical resize +5<cr>") -- decrease window size window by 5
 map("n", "<leader>e", "<esc>$") -- go to the end of the line
 map("n", "<leader>a", "<esc>^") -- go to the start of the line
 
--- LSP SAGA
-map("n", "<leader>rr", ":Lspsaga rename<CR>")
-map("n", "<leader>ca", ":Lspsaga code_action<CR>")
-map("n", "<leader>gd", ":Lspsaga peek_definition<CR>")
+-- Trouble
+map("n", "<leader>rr", vim.lsp.buf.rename)
+map("n", "<leader>ca", vim.lsp.buf.code_action)
+map("n", "<leader>gd", ":Trouble lsp_definitions<CR>")
 
 -- TABS
 map("n", "<leader>n", ":BufferNext<CR>") -- next tab
