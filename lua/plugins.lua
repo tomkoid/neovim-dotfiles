@@ -26,7 +26,7 @@ require("lazy").setup({
   {
     "nvim-treesitter/nvim-treesitter",
     -- lazy = false,
-    -- cmd = "TSUpdate"
+    cmd = "TSUpdate"
   },
   "nvim-treesitter/playground",
   "honza/vim-snippets",
