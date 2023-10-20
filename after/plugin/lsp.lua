@@ -99,4 +99,5 @@ lspconfig.nil_ls.setup {
     },
   },
 }
+lspconfig.svelte.setup({})
 -- lspconfig.nixd.setup({})
