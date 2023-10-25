@@ -67,6 +67,8 @@ lspconfig.lua_ls.setup({
   },
 })
 
+lspconfig.rust_analyzer.setup({})
+
 lspconfig.tsserver.setup({
   on_attach = function(client)
     client.resolved_capabilities.document_formatting = false
