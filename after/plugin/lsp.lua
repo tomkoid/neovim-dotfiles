@@ -67,6 +67,8 @@ lspconfig.lua_ls.setup({
   },
 })
 
+lspconfig.clangd.setup({})
+
 lspconfig.rust_analyzer.setup({})
 
 lspconfig.tsserver.setup({
