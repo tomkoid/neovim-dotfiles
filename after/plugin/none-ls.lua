@@ -5,6 +5,8 @@ null_ls.setup({
   sources = {
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.formatting.prettier,
+    null_ls.builtins.formatting.gofmt,
+    null_ls.builtins.formatting.nixpkgs_fmt,
     null_ls.builtins.diagnostics.mypy,
     null_ls.builtins.completion.spell,
   },
