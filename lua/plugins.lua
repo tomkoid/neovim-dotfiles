@@ -91,6 +91,9 @@ require("lazy").setup({
     end,
   },
   {
+    "lambdalisue/suda.vim",
+  },
+  {
     "nvim-lualine/lualine.nvim",
     dependencies = { "kyazdani42/nvim-web-devicons", opt = true },
   },
