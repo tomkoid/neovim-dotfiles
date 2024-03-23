@@ -6,11 +6,11 @@ local home = os.getenv("HOME")
 local style = "pikachu"
 
 local function read_array(file)
-	local array = {}
-	for line in io.lines(file) do
-		table.insert(array, line)
-	end
-	return array
+  local array = {}
+  for line in io.lines(file) do
+    table.insert(array, line)
+  end
+  return array
 end
 
 dashboard.section.header.val = read_array(home .. "/.config/nvim/static/" .. style .. ".cat")

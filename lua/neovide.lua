@@ -3,7 +3,7 @@ local o = vim.o
 
 o.guifont = "JetBrainsMono Nerd Font:h12"
 
-g.neovide_theme = 'auto'
+g.neovide_theme = "auto"
 g.neovide_refresh_rate = 60
 g.neovide_transparency = 0.95
 g.neovide_scroll_animation_length = 0.3

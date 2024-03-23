@@ -1,6 +1,5 @@
 require("lualine").setup({
-	options = {
-		disabled_filetypes = { "NERDTree" },
-	},
+  options = {
+    disabled_filetypes = { "NERDTree" },
+  },
 })
-
