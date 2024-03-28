@@ -13,10 +13,8 @@ echo "2 - Fedora / Fedora based distributions"
 echo "3 - Debian / Debian based distributions"
 echo "4 - Gentoo / Gentoo based distributions"
 echo "5 - Void / Void based distributions"
-echo "6 - Nix OS"
-echo "7 - Nix package manager"
-echo "8 - Termux"
-echo "9 - Other"
+echo "6 - Termux"
+echo "7 - Other"
 
 read -p "Please enter your Linux distribution / package manager: " distribution
 
@@ -48,26 +46,10 @@ case $distribution in
     sudo xbps-install -S ttf-ubuntu-font-family font-firacode neovim git nodejs || exit 1 
     ;;
   6)
-    distribution_name="NixOS"
-    nix-env -iA nixos.ubuntu_font_family || exit 1
-    nix-env -iA nixos.jetbrains-mono || exit 1
-    nix-env -iA nixos.neovim || exit 1
-    nix-env -iA nixos.git || exit 1
-    nix-env -iA nixos.nodejs || exit 1
-    ;;
-  7)
-    distribution_name="Nix"
-    nix-env -iA nixpkgs.ubuntu_font_family || exit 1
-    nix-env -iA nixpkgs.jetbrains-mono || exit 1
-    nix-env -iA nixpkgs.neovim || exit 1
-    nix-env -iA nixpkgs.git || exit 1
-    nix-env -iA nixpkgs.nodejs || exit 1
-    ;;
-  8)
     distribution_name="Termux"
     apt update -y && apt install nodejs git lua-language-server -y || exit 1
     ;;
-  9)
+  7)
     distribution_name="Other"
     echo "Please install dependencies manually with your package manager"
     ;;
