@@ -7,14 +7,14 @@ vim.diagnostic.config({ virtual_text = true })
 
 require("mason").setup()
 require("mason-lspconfig").setup({
-	ensure_installed = { "tsserver", "rust_analyzer" },
-	handlers = {
-		lsp.default_setup,
-		lua_ls = function()
-			local lua_opts = lsp.nvim_lua_ls()
-			require("lspconfig").lua_ls.setup(lua_opts)
-		end,
-	},
+  ensure_installed = { "tsserver", "rust_analyzer" },
+  handlers = {
+    lsp.default_setup,
+    lua_ls = function()
+      local lua_opts = lsp.nvim_lua_ls()
+      require("lspconfig").lua_ls.setup(lua_opts)
+    end,
+  },
 })
 local lspconfig = require("lspconfig")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -55,40 +55,54 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 -- })
 --
 
-
 vim.diagnostic.config({
-	virtual_text = false,
-	signs = true,
-	underline = true,
-	{ "williamboman/mason-lspconfig.nvim" },
-	update_in_insert = true,
+  virtual_text = false,
+  signs = true,
+  underline = true,
+  { "williamboman/mason-lspconfig.nvim" },
+  update_in_insert = true,
 })
 
 local caps = vim.tbl_deep_extend(
-	"force",
-	vim.lsp.protocol.make_client_capabilities(),
-	require("cmp_nvim_lsp").default_capabilities(),
-	-- File watching is disabled by default for neovim.
-	-- See: https://github.com/neovim/neovim/pull/22405
-	{ workspace = { didChangeWatchedFiles = { dynamicRegistration = true } } }
+  "force",
+  vim.lsp.protocol.make_client_capabilities(),
+  require("cmp_nvim_lsp").default_capabilities(),
+  -- File watching is disabled by default for neovim.
+  -- See: https://github.com/neovim/neovim/pull/22405
+  { workspace = { didChangeWatchedFiles = { dynamicRegistration = true } } }
 )
 
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 cmp.setup({
-	sources = {
-		{ name = "path" },
-		{ name = "nvim_lsp" },
-		{ name = "nvim_lua" },
-	},
-	formatting = lsp.cmp_format(),
-	mapping = cmp.mapping.preset.insert({
-		["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-		["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-		["<C-y>"] = cmp.mapping.confirm({ select = true }),
-		["<C-Space>"] = cmp.mapping.complete(),
-	}),
+  sources = {
+    { name = "path" },
+    { name = "nvim_lsp" },
+    { name = "nvim_lua" },
+  },
+  formatting = lsp.cmp_format(),
+  mapping = cmp.mapping.preset.insert({
+    ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+    ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+    ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+    ["<C-Space>"] = cmp.mapping.complete(),
+  }),
+})
+
+lspconfig.gopls.setup({
+  cmd = { "gopls" },
+  filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
+  settings = {
+    gopls = {
+      completeUnimported = true,
+      usePlaceholders = true,
+      analyses = {
+        unusedparams = true,
+      },
+    },
+  },
 })
 
 -- lspconfig.lua_ls.setup({
@@ -146,37 +160,28 @@ cmp.setup({
 
 lspconfig.gdscript.setup({})
 
-local fqbn = "esp8266:esp8266:nodemcuv2"
-lspconfig.arduino_language_server.setup({
-	cmd = {
-		"arduino-language-server",
-		"-cli-config",
-		"/home/tom/.arduino15/arduino-cli.yaml",
-		"-fqbn",
-		fqbn,
-	},
+-- lspconfig.arduino_language_server.setup({})
 
-	on_attach = on_attach,
-	--capabilities = capabilities,
+local fqbn = "esp32:esp32:esp32"
+lspconfig.arduino_language_server.setup({
+  cmd = {
+    "arduino-language-server",
+    "-cli-config",
+    "/home/tom/.arduino15/arduino-cli.yaml",
+    -- "-cli",
+    -- "/usr/bin/arduino-cli",
+    "-clangd",
+    "/usr/bin/clangd",
+    "-fqbn",
+    fqbn,
+  },
+
+  -- on_attach = on_attach,
+  capabilities = capabilities,
 })
 
 --
--- local arduino = require("arduino-nvim").setup({
--- 	default_fqbn = "esp8266:esp8266:nodemcuv2",
---
--- 	--Path to clangd (all paths must be full)
--- 	clangd = require("mason-core.path").bin_prefix("clangd"),
---
--- 	--Path to arduino-cli
--- 	arduino = "/usr/bin/arduino-cli",
---
--- 	--Data directory of arduino-cli
--- 	arduino_config_dir = "/home/tom/.arduino15",
---
--- 	--Extra options to arduino-language-server
--- 	extra_opts = { ... },
--- })
---
--- require("lspconfig")["arduino_language_server"].setup({
--- 	on_new_config = arduino.on_new_config,
+-- require("arduino-nvim").setup({
+--   default_fqbn = "esp32:esp32:esp32",
+--   filetypes = { "arduino" },
 -- })
