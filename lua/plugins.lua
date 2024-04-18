@@ -217,7 +217,6 @@ require("lazy").setup({
     },
     config = true,
   },
-  "edKotinsky/Arduino.nvim",
   {
     "akinsho/flutter-tools.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
