@@ -73,6 +73,7 @@ local caps = vim.tbl_deep_extend(
 )
 
 local cmp = require("cmp")
+local cmp_action = require("lsp-zero").cmp_action()
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 cmp.setup({
@@ -80,6 +81,7 @@ cmp.setup({
     { name = "path" },
     { name = "nvim_lsp" },
     { name = "nvim_lua" },
+    { name = "luasnip" },
   },
   formatting = lsp.cmp_format(),
   mapping = cmp.mapping.preset.insert({
@@ -87,6 +89,8 @@ cmp.setup({
     ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
     ["<C-y>"] = cmp.mapping.confirm({ select = true }),
     ["<C-Space>"] = cmp.mapping.complete(),
+    ["<C-f>"] = cmp_action.luasnip_jump_forward(),
+    ["<C-b>"] = cmp_action.luasnip_jump_backward(),
   }),
   window = {
     completion = cmp.config.window.bordered(),
