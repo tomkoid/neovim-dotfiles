@@ -24,6 +24,7 @@ map("n", "<leader>ff", ":Telescope find_files<CR>") -- open telescope file manag
 map("n", "<leader>fg", ":Telescope live_grep<CR>")  -- open telescope file manager
 map("n", "<leader>fb", ":Telescope buffers<CR>")    -- open telescope file manager
 map("n", "<leader>fh", ":Telescope help_tags<CR>")  -- open telescope file manager
+map("n", "<leader>hh", vim.lsp.buf.hover)           -- open telescope file manager
 map("n", "<leader>s", "<c-w>w")                     -- switch focus to next window
 map("n", "<c-left>", ":tabprevious<cr>")            -- switch to previous tab
 map("n", "<c-right>", ":tabnext<cr>")               -- switch to next tab
