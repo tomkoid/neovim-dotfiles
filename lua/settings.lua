@@ -22,16 +22,21 @@ o.showmode = true
 o.hidden = true
 o.scrolloff = 10
 --o.smarttab = true
---o.smartcase = true
+o.ignorecase = true
+o.smartcase = true
 o.autoindent = true
 o.autoread = true
 o.wildmenu = true
 o.wildmode = "list:longest"
 o.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*xlsx"
 o.backspace = "indent,eol,start"
+o.undofile = true
+o.inccommand = "split"
+o.breakindent = true
+o.signcolumn = "yes"
 
 -- Search
-o.hlsearch = false
+o.hlsearch = true
 o.incsearch = true
 
 g.rehash256 = 1
@@ -84,7 +89,7 @@ o.splitright = true
 o.laststatus = 3
 
 -- Decrease update time
-o.timeoutlen = 400
+o.timeoutlen = 300
 o.updatetime = 100
 
 -- Set colorscheme
@@ -93,3 +98,5 @@ o.updatetime = 100
 -- Plugins
 -- empty setup using defaults
 -- require("nvim-tree").setup()
+
+g.have_nerd_font = false
