@@ -12,6 +12,9 @@ vim.g.maplocalleader = " "
 map("v", "J", ":m '>+1<cr>gv=gv")
 map("v", "K", ":m '<-2<cr>gv=gv")
 
+-- disable highlight on esc
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
