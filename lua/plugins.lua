@@ -44,7 +44,7 @@ require("lazy").setup({
       "nvim-lua/plenary.nvim",
     },
   },
-  "terryma/vim-multiple-cursors",
+  "mg979/vim-visual-multi",
   "ryanoasis/vim-devicons",
   "voldikss/vim-floaterm",
   {
@@ -56,7 +56,6 @@ require("lazy").setup({
   "junegunn/fzf",
   { "junegunn/vim-emoji" },
   "kyazdani42/nvim-web-devicons",
-  "numToStr/Sakura.nvim",
   "vimwiki/vimwiki",
   { "junegunn/goyo.vim" },
   {
