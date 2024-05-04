@@ -147,9 +147,23 @@ require("lazy").setup({
     "VonHeikemen/lsp-zero.nvim",
     dependencies = {
       -- LSP Support
-      { "neovim/nvim-lspconfig" },
+      {
+        "neovim/nvim-lspconfig",
+        dependencies = {
+          -- Useful status updates for LSP.
+          -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
+          -- {
+          --   "j-hui/fidget.nvim",
+          --   opts = {},
+          -- },
+          -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
+          -- used for completion, annotations and signatures of Neovim apis
+          { "folke/neodev.nvim", opts = {} },
+        },
+      },
       { "williamboman/mason.nvim" },
       { "williamboman/mason-lspconfig.nvim" },
+      { "WhoIsSethDaniel/mason-tool-installer.nvim" },
 
       -- Autocompletion
       { "hrsh7th/nvim-cmp" },
@@ -163,6 +177,13 @@ require("lazy").setup({
       { "L3MON4D3/LuaSnip" },
       { "rafamadriz/friendly-snippets" },
     },
+  },
+  -- Highlight todo, notes, etc in comments
+  {
+    "folke/todo-comments.nvim",
+    event = "VimEnter",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = { signs = false },
   },
   -- { "mattn/efm-langserver" },
   -- {
