@@ -3,7 +3,20 @@ lsp.preset("recommended")
 
 lsp.setup({ virtual_text = true })
 
-vim.diagnostic.config({ virtual_text = true })
+vim.diagnostic.config({
+  float = {
+    focusable = false,
+    style = "minimal",
+    border = "rounded",
+    source = "always",
+    header = "",
+    prefix = "",
+  },
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  -- update_in_insert = true,
+})
 
 require("mason").setup()
 require("mason-lspconfig").setup({
@@ -54,14 +67,6 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 -- 	end,
 -- })
 --
-
-vim.diagnostic.config({
-  virtual_text = false,
-  signs = true,
-  underline = true,
-  { "williamboman/mason-lspconfig.nvim" },
-  update_in_insert = true,
-})
 
 local caps = vim.tbl_deep_extend(
   "force",

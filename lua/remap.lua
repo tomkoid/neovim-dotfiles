@@ -35,6 +35,7 @@ map("n", "<leader>fb", ":Telescope buffers<CR>")    -- open telescope file manag
 map("n", "<leader>fh", ":Telescope help_tags<CR>")  -- open telescope file manager
 map("n", "<leader>hh", vim.lsp.buf.hover)           -- open telescope file manager
 map("n", "<leader>s", "<c-w>w")                     -- switch focus to next window
+map("n", "<leader>bf", vim.lsp.buf.format)                    -- switch focus to next window
 map("n", "<c-left>", ":tabprevious<cr>")            -- switch to previous tab
 map("n", "<c-right>", ":tabnext<cr>")               -- switch to next tab
 map("n", "<c-b>", ":vnew term://zsh<cr>")           -- open new terminal
