@@ -1,18 +1,3 @@
-local function map(m, k, v)
-  vim.keymap.set(m, k, v, { silent = true })
-end
-
---local telescope = require('telescope.builtin')
-
--- Map leader
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
--- best keybindings ever
-map("v", "J", ":m '>+1<cr>gv=gv")
-map("v", "K", ":m '<-2<cr>gv=gv")
-
--- disable highlight on esc
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Diagnostic keymaps
@@ -21,45 +6,33 @@ vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagn
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
--- tmux
-map("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>")
-map("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>")
-map("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>")
-map("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>")
+-- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
+-- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
+-- is not what someone will guess without a bit more experience.
+--
+-- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
+-- or just use <C-\><C-n> to exit terminal mode
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
-map("n", "<leader>lg", ":LazyGit<CR>")              -- open lazygit
-map("n", "<leader>t", ":NvimTreeToggle<cr>")        -- open nvim tree
-map("n", "<leader>ff", ":Telescope find_files<CR>") -- open telescope file manager
-map("n", "<leader>fg", ":Telescope live_grep<CR>")  -- open telescope file manager
-map("n", "<leader>fb", ":Telescope buffers<CR>")    -- open telescope file manager
-map("n", "<leader>fh", ":Telescope help_tags<CR>")  -- open telescope file manager
-map("n", "<leader>hh", vim.lsp.buf.hover)           -- open telescope file manager
-map("n", "<leader>s", "<c-w>w")                     -- switch focus to next window
-map("n", "<leader>bf", vim.lsp.buf.format)                    -- switch focus to next window
-map("n", "<c-left>", ":tabprevious<cr>")            -- switch to previous tab
-map("n", "<c-right>", ":tabnext<cr>")               -- switch to next tab
-map("n", "<c-b>", ":vnew term://zsh<cr>")           -- open new terminal
-map("t", "<esc>", [[<c-\><c-n>]])                   -- enable esc in terminal mode
-map("n", "d-v", "")
-map("n", "<f4>", ":nohlsearch<cr>")                 -- clear search highlighting
-map("n", "<c-h>", ":vertical resize -5<cr>")        -- increase window size by 5%
-map("n", "<c-l>", ":vertical resize +5<cr>")        -- decrease window size window by 5%
-map("n", "<leader>e", "<esc>$")                     -- go to the end of the line
-map("n", "<leader>a", "<esc>^")                     -- go to the start of the line
+-- TIP: Disable arrow keys in normal mode
+-- vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
+-- vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
+-- vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
+-- vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
--- Trouble
-map("n", "<leader>rr", vim.lsp.buf.rename)
-map("n", "<leader>ca", vim.lsp.buf.code_action)
-map("n", "<leader>gd", ":Trouble lsp_definitions<CR>")
+-- Keybinds to make split navigation easier.
+--  Use CTRL+<hjkl> to switch between windows
+--
+--  See `:help wincmd` for a list of all window commands
+vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
--- TABS
-map("n", "<leader>n", ":BufferNext<CR>")          -- next tab
-map("n", "<leader>mn", ":BufferMoveNext<CR>")     -- move to next
-map("n", "<leader>p", ":BufferPrevious<CR>")      -- previous tab
-map("n", "<leader>mp", ":BufferMovePrevious<CR>") -- move previous
-map("n", "<leader>x", ":BufferClose<CR>")         -- close tab
+-- best keybindings ever
+vim.keymap.set("v", "J", ":m '>+1<cr>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<cr>gv=gv")
 
--- intellisense
--- vim.api.nvim_set_keymap("i", "<tab>", "coc#pum#visible() ? coc#pum#next(1): '<tab>'", {noremap = true, silent = true, expr = true})
+vim.keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>", { desc = "Open up nvim-tree", silent = true })
 
--- vim.api.nvim_set_keymap("i", "<cr>", "coc#pum#visible() ? coc#pum#confirm(): '<cr>'", {noremap = true, silent = true, expr = true})
+-- vim.keymap.set("n", "<leader>ng", require("neogen").generate(o))
