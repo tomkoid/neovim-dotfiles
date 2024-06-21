@@ -3,17 +3,38 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		opts = {
-			ensure_installed = { "bash", "c", "diff", "html", "lua", "luadoc", "markdown", "vim", "vimdoc", "jsdoc", "bash" },
+			ensure_installed = {
+				"bash",
+				"c",
+				"diff",
+				"html",
+				"lua",
+				"luadoc",
+				"markdown",
+				"vim",
+				"vimdoc",
+				"jsdoc",
+				"templ",
+				"bash",
+			},
 			-- Autoinstall languages that are not installed
 			auto_install = true,
 			highlight = {
 				enable = true,
+				use_languagetree = true,
 				-- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
 				--  If you are experiencing weird indenting issues, add the language to
 				--  the list of additional_vim_regex_highlighting and disabled languages for indent.
 				additional_vim_regex_highlighting = { "ruby", "markdown" },
 			},
 			indent = { enable = true, disable = { "ruby" } },
+			autotag = {
+				enable = true,
+				enable_rename = true,
+				enable_close = true,
+				enable_close_on_slash = true,
+				filetypes = { "html", "xml", "templ", "tmpl" },
+			},
 		},
 		config = function(_, opts)
 			-- [[ Configure Treesitter ]] See `:help nvim-treesitter`

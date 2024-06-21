@@ -78,7 +78,9 @@ return {
 			})
 
 			local opts = { noremap = true, silent = true }
-			vim.keymap.set("n", "<leader>nc", function () neogen.generate({ snippet_engine = "luasnip"}) end, opts)
-		end
+			vim.keymap.set("n", "<leader>nc", function()
+				neogen.generate({ snippet_engine = "luasnip" })
+			end, opts)
+		end,
 	},
 }
