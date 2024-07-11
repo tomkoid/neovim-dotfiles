@@ -28,6 +28,7 @@ return {
 				lua = { "stylua" },
 				go = { "gofmt", "golines", "goimports-reviser" },
 				rust = { "rustfmt" },
+				nix = { "nixpkgs_fmt" },
 				-- Conform can also run multiple formatters sequentially
 				python = { "isort", "black" },
 				--
