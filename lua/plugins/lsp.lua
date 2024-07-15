@@ -203,6 +203,7 @@ return {
 			--
 			--  You can press `g?` for help in this menu.
 			require("lspconfig").clangd.setup({})
+			require("lspconfig").dartls.setup({})
 			require("mason").setup()
 
 			-- You can add other tools here that you want Mason to install
