@@ -28,6 +28,10 @@ return {
 				lua = { "stylua" },
 				go = { "gofmt", "golines", "goimports-reviser" },
 				rust = { "rustfmt" },
+				c = { "clang-format" },
+				cpp = { "clang-format" },
+				h = { "clang-format" },
+				hpp = { "clang-format" },
 				nix = { "nixpkgs_fmt" },
 				-- Conform can also run multiple formatters sequentially
 				python = { "isort", "black" },
@@ -39,5 +43,13 @@ return {
 				scss = { "stylelint", "prettier" },
 			},
 		},
+		config = function()
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				pattern = "*",
+				callback = function(args)
+					require("conform").format({ bufnr = args.buf, lsp_fallback = true })
+				end,
+			})
+		end,
 	},
 }
