@@ -16,7 +16,7 @@ return {
 
 			-- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
 			-- used for completion, annotations and signatures of Neovim apis
-			{ "folke/neodev.nvim", opts = {} },
+			{ "folke/neodev.nvim",       opts = {} },
 		},
 		config = function()
 			-- Brief aside: **What is LSP?**
@@ -113,7 +113,7 @@ return {
 					local client = vim.lsp.get_client_by_id(event.data.client_id)
 					if client and client.server_capabilities.documentHighlightProvider then
 						local highlight_augroup =
-							vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
+								vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
 						vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 							buffer = event.buf,
 							group = highlight_augroup,
@@ -204,6 +204,24 @@ return {
 			--  You can press `g?` for help in this menu.
 			require("lspconfig").clangd.setup({})
 			require("lspconfig").dartls.setup({})
+
+			local fqbn = "esp32:esp32:esp32"
+			require("lspconfig").arduino_language_server.setup({
+				cmd = {
+					"arduino-language-server",
+					"-cli-config",
+					"/home/tom/.arduino15/arduino-cli.yaml",
+					-- "-cli",
+					-- "/usr/bin/arduino-cli",
+					"-clangd",
+					"/usr/bin/clangd",
+					"-fqbn",
+					fqbn,
+				},
+
+				-- on_attach = on_attach,
+				capabilities = capabilities,
+			})
 			require("mason").setup()
 
 			-- You can add other tools here that you want Mason to install
