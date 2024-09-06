@@ -24,12 +24,16 @@ return {
 			-- 		lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
 			-- 	}
 			-- end,
+			lang_to_ext = {
+				c_sharp = "cs",
+			},
 			formatters_by_ft = {
 				lua = { "stylua" },
 				go = { "gofmt", "golines", "goimports-reviser" },
 				rust = { "rustfmt" },
 				c = { "clang-format" },
 				cpp = { "clang-format" },
+				cs = { "csharpier" },
 				h = { "clang-format" },
 				hpp = { "clang-format" },
 				nix = { "nixpkgs_fmt" },
