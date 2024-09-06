@@ -204,6 +204,11 @@ return {
 			--  You can press `g?` for help in this menu.
 			require("lspconfig").clangd.setup({})
 			require("lspconfig").dartls.setup({})
+			-- require("lspconfig").gdscript.setup(capabilities)
+			require("lspconfig")["gdscript"].setup({
+				name = "godot",
+				cmd = vim.lsp.rpc.connect("127.0.0.1", 6005),
+			})
 
 			local fqbn = "esp32:esp32:esp32"
 			require("lspconfig").arduino_language_server.setup({
