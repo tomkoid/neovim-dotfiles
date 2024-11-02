@@ -13,6 +13,7 @@ return {
 			},
 			view = {
 				width = 30,
+				side = "right"
 			},
 			renderer = {
 				group_empty = true,
