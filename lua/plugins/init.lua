@@ -94,6 +94,12 @@ return {
 		end,
 	},
 
+	-- Hightlight Rust lifetimes
+	{
+		"cordx56/rustowl",
+		dependencies = { "neovim/nvim-lspconfig" }
+	},
+
 	{
 		'mrcjkb/rustaceanvim',
 		version = '^5', -- Recommended
