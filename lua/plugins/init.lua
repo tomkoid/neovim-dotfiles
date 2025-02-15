@@ -69,7 +69,6 @@ return {
 	{
 		"lambdalisue/suda.vim",
 	},
-	{ "windwp/nvim-ts-autotag" },
 	-- Lazy.nvim
 	{
 		"hiasr/vim-zellij-navigator.nvim",
