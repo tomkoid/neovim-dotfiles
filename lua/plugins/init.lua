@@ -79,12 +79,6 @@ return {
 	},
 
 	{
-		'vyfor/cord.nvim',
-		build = ':Cord update',
-		-- opts = {}
-	},
-
-	{
 		"danymat/neogen",
 		config = function()
 			local neogen = require("neogen")
