@@ -11,12 +11,12 @@ return {
 			-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 			{
 				"j-hui/fidget.nvim",
-				opts = {}
+				opts = {},
 			},
 
 			-- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
 			-- used for completion, annotations and signatures of Neovim apis
-			{ "folke/neodev.nvim",       opts = {} },
+			{ "folke/neodev.nvim", opts = {} },
 		},
 		config = function()
 			-- Brief aside: **What is LSP?**
@@ -113,7 +113,7 @@ return {
 					local client = vim.lsp.get_client_by_id(event.data.client_id)
 					if client and client.server_capabilities.documentHighlightProvider then
 						local highlight_augroup =
-								vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
+							vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
 						vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 							buffer = event.buf,
 							group = highlight_augroup,
@@ -202,16 +202,18 @@ return {
 			--    :Mason
 			--
 			--  You can press `g?` for help in this menu.
-			require("lspconfig").clangd.setup({})
-			require("lspconfig").dartls.setup({})
+			vim.lsp.enable("clangd")
+			vim.lsp.enable("dartls")
 			-- require("lspconfig").gdscript.setup(capabilities)
-			require("lspconfig")["gdscript"].setup({
+			vim.lsp.enable("gdscript")
+			vim.lsp.config("gdscript", {
 				name = "godot",
 				cmd = vim.lsp.rpc.connect("127.0.0.1", 6005),
 			})
 
 			local fqbn = "esp32:esp32:esp32"
-			require("lspconfig").arduino_language_server.setup({
+			vim.lsp.enable("arduino_language_server")
+			vim.lsp.config("arduino_language_server", {
 				cmd = {
 					"arduino-language-server",
 					"-cli-config",
@@ -227,7 +229,9 @@ return {
 				-- on_attach = on_attach,
 				capabilities = capabilities,
 			})
-			require("lspconfig").nixd.setup({
+
+			vim.lsp.enable("nixd")
+			vim.lsp.config("nixd", {
 				cmd = { "nixd" },
 				settings = {
 					nixd = {
@@ -266,7 +270,7 @@ return {
 						-- by the server configuration above. Useful when disabling
 						-- certain features of an LSP (for example, turning off formatting for tsserver)
 						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-						require("lspconfig")[server_name].setup(server)
+						vim.lsp.config[server_name].setup(server)
 					end,
 				},
 			})
