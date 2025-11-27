@@ -11,7 +11,16 @@ return {
 			-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 			{
 				"j-hui/fidget.nvim",
-				opts = {},
+				opts = {
+					notification = {
+						window = {
+							winblend = 0,
+						},
+					},
+				},
+				config = function(_, opts)
+					require("fidget").setup(opts)
+				end,
 			},
 
 			-- `neodev` configures Lua LSP for your Neovim config, runtime and plugins

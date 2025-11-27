@@ -20,6 +20,9 @@ return {
 		opts = {
 			flavor = "mocha", -- latte, frappe, macchiato, mocha
 			transparent_background = true,
+			integrations = {
+				fidget = true,
+			},
 		},
 		config = function(_, opts)
 			require("catppuccin").setup(opts)
