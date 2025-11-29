@@ -117,5 +117,31 @@ return {
 		"mrcjkb/rustaceanvim",
 		version = "^5", -- Recommended
 		lazy = false, -- This plugin is already lazy
+		opts = {
+			cargo = {
+				features = "all",
+			},
+			check = {
+				invocationStrategy = "per_workspace",
+			},
+		},
+		config = function(_, opts)
+			vim.g.rustaceanvim = {
+				-- Plugin configuration
+				tools = {},
+				-- LSP configuration
+				server = {
+					on_attach = function(_, _)
+						-- you can also put keymaps in here
+					end,
+					default_settings = {
+						-- rust-analyzer language server configuration
+						["rust-analyzer"] = opts,
+					},
+				},
+				-- DAP configuration
+				dap = {},
+			}
+		end,
 	},
 }
