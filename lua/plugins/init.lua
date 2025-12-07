@@ -22,6 +22,7 @@ return {
 			transparent_background = true,
 			integrations = {
 				fidget = true,
+				blink_pairs = true,
 			},
 		},
 		config = function(_, opts)
@@ -76,6 +77,12 @@ return {
 		config = function()
 			require("gitblame").setup({ enabled = true })
 		end,
+	},
+	{
+		"saghen/blink.indent",
+		--- @module 'blink.indent'
+		--- @type blink.indent.Config
+		-- opts = {},
 	},
 	{
 		"lambdalisue/suda.vim",
